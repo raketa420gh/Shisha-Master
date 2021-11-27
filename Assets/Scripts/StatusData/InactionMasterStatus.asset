@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02c6e5f7d7a50645b5aca9e89f469c1, type: 3}
+  m_Name: InactionMasterStatus
+  m_EditorClassIdentifier: 
+  Text: "\u0411\u0435\u0437\u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044E"
+  Sprite: {fileID: 21300000, guid: beb37b576bb9dfb41b789fb61ac52dec, type: 3}
