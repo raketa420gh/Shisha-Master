@@ -8,6 +8,7 @@ namespace Raketa420
       [SerializeField] private StatusData inactionStatusData;
       [SerializeField] private StatusData findPlaceStatusData;
       [SerializeField] private StatusData waitingForOrderAcceptanceStatusData;
+      [SerializeField] private StatusData makingAnOrderStatusData;
       [SerializeField] private StatusData exitFromBarStatusData;
       private StatusData currentStatus;
       private Table currentUsingTable;
@@ -31,6 +32,11 @@ namespace Raketa420
       public void SetWaitingForOrderAcceptanceStatus()
       {
          SetStatus(waitingForOrderAcceptanceStatusData);
+      }
+
+      public void SetMakingAnOrderStatus()
+      {
+         SetStatus(makingAnOrderStatusData);
       }
 
       public void SetExitFromBarStatus()

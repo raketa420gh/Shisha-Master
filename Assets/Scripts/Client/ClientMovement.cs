@@ -1,15 +1,17 @@
 using UnityEngine;
-using UnityEngine.AI;
+using Pathfinding;
 
 namespace Raketa420
 {
-   [RequireComponent(typeof(NavMeshAgent))]
+   [RequireComponent(typeof(Seeker))]
+   [RequireComponent(typeof(AIPath))]
 
    public class ClientMovement : MonoBehaviour
    {
-      private NavMeshAgent meshAgent;
+      private Seeker seeker;
+      private AIPath aiPath;
 
-      public NavMeshAgent MeshAgent => meshAgent;
+      public AIPath AiPath => aiPath;
 
       private void Awake()
       {
@@ -18,13 +20,13 @@ namespace Raketa420
 
       private void InitializeComponents()
       {
-         meshAgent = GetComponent<NavMeshAgent>();
+         seeker = GetComponent<Seeker>();
+         aiPath = GetComponent<AIPath>();
       }
 
       public void MoveTo(Vector3 point)
       {
-         meshAgent.enabled = true;
-         meshAgent.SetDestination(point);
+         aiPath.destination = point;
       }
    }
 }

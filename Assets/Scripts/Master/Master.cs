@@ -1,10 +1,12 @@
 using UnityEngine;
+using Pathfinding;
 
 namespace Raketa420
 {
    [RequireComponent(typeof(MasterBank))]
    [RequireComponent(typeof(MasterAnimation))]
    [RequireComponent(typeof(MasterMovement))]
+   [RequireComponent(typeof(Seeker))]
    [RequireComponent(typeof(MasterStatusView))]
    [RequireComponent(typeof(MasterStateMachine))]
 
@@ -24,6 +26,23 @@ namespace Raketa420
       public MasterMovement Movement => movement;
       public MasterStatusView StatusView => statusView;
 
+
+      private void OnEnable()
+      {
+         UserInput.OnClicked += UserInputOnClicked;
+      }
+
+      private void OnDisable()
+      {
+         UserInput.OnClicked += UserInputOnClicked;
+      }
+
+      private void UserInputOnClicked(Vector3 point)
+      {
+         movement.MoveTo(point);
+         stateMachine.ChangeState(walkState);
+      }
+
       private void Awake()
       {
          InitializeSelfComponents();
@@ -32,7 +51,6 @@ namespace Raketa420
       private void Start()
       {
          InitializeStateMachine();
-         InitializeOtherComponents();
       }
 
       private void Update()
@@ -48,10 +66,6 @@ namespace Raketa420
          statusView = GetComponent<MasterStatusView>();
       }
 
-      private void InitializeOtherComponents()
-      {
-      }
-
       private void InitializeStateMachine()
       {
          stateMachine = GetComponent<MasterStateMachine>();
@@ -59,10 +73,6 @@ namespace Raketa420
          walkState = new WalkMasterState(this, stateMachine);
 
          stateMachine.Initialize(inactionState);
-      }
-
-      private void OnMasterSpawned()
-      {
       }
    }
 }

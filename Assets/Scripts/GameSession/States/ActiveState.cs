@@ -18,7 +18,7 @@ namespace Raketa420
          NavMeshBuilder.BuildNavMesh();
 
          var randomPeriod = Random.Range(5f, 20f);
-         gameSession.Spawner.StartSpawningClients(gameSession.Data.ClientStartPosition, 10, randomPeriod);
+         //gameSession.Spawner.StartSpawningClients(gameSession.Data.ClientStartPosition, 10, randomPeriod);
       }
 
       public override void LogicUpdate()

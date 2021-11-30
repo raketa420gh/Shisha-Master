@@ -38,7 +38,7 @@ namespace Raketa420
       {
          base.LogicUpdate();
 
-         if (Vector3.Distance(client.transform.position, client.Movement.MeshAgent.destination) < interactDistance)
+         if (Vector3.Distance(client.transform.position, client.Movement.AiPath.destination) < interactDistance)
          {
             client.stateMachine.ChangeState(client.waitingForOrderAcceptanceClientState);
          }

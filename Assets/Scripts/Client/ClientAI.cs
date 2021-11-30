@@ -10,6 +10,13 @@ namespace Raketa420
          return GetClosestTable(GetFreeTables());
       }
 
+      public Master GetMaster()
+      {
+         var master = FindObjectOfType<Master>();
+
+         return master;
+      }
+
       public Transform GetExitFromBar()
       {
          var exitFromBar = FindObjectOfType<ExitFromBar>();

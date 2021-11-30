@@ -16,6 +16,7 @@ namespace Raketa420
       public InactionClientState inactionState;
       public FindPlaceClientState findPlaceState;
       public WaitingForOrderAcceptanceClientState waitingForOrderAcceptanceClientState;
+      public MakingAnOrderClientState makingAnOrderClientState;
       public WaitSecondTimeClientState waitSecondTimeState;
       public ExitFromBarClientState exitFromBarClientState;
 
@@ -75,6 +76,7 @@ namespace Raketa420
          inactionState = new InactionClientState(this, stateMachine);
          findPlaceState = new FindPlaceClientState(this, stateMachine);
          waitingForOrderAcceptanceClientState = new WaitingForOrderAcceptanceClientState(this, stateMachine);
+         makingAnOrderClientState = new MakingAnOrderClientState(this, stateMachine);
          waitSecondTimeState = new WaitSecondTimeClientState(this, stateMachine);
          exitFromBarClientState = new ExitFromBarClientState(this, stateMachine);
 

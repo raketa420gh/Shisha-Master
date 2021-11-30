@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Raketa420
 {
    public class WalkMasterState : MasterState
@@ -18,7 +20,7 @@ namespace Raketa420
       {
          base.LogicUpdate();
 
-         if (!master.Movement.MeshAgent.hasPath)
+         if (master.Movement.AiPath.reachedDestination)
          {
             stateMachine.ChangeState(master.inactionState);
          }

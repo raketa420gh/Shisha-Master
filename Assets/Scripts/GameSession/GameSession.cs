@@ -78,7 +78,7 @@ namespace Raketa420
 
       private void OnPressedC()
       {
-
+         spawner.SpawnClient(data.ClientStartPosition);
       }
    }
 }

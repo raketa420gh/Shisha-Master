@@ -17,11 +17,6 @@ namespace Raketa420
       public override void LogicUpdate()
       {
          base.LogicUpdate();
-
-         if (master.Movement.MeshAgent.hasPath)
-         {
-            stateMachine.ChangeState(master.walkState);
-         }
       }
    }
 }

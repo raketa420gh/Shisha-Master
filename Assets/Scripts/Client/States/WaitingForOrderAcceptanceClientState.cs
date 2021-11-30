@@ -6,6 +6,8 @@ namespace Raketa420
    {
       private float timer = 0f;
       private float waitingTime = 20f;
+      private Master master;
+      private float distanceToMaster = 0.5f;
 
       public WaitingForOrderAcceptanceClientState(Client client, ClientStateMachine stateMachine) : base(client, stateMachine)
       {
@@ -14,6 +16,8 @@ namespace Raketa420
       public override void Enter()
       {
          base.Enter();
+
+         master = client.AI.GetMaster();
 
          timer = 0f;
          client.Bank.SetWaitingForOrderAcceptanceStatus();
@@ -32,6 +36,11 @@ namespace Raketa420
          if (timer > waitingTime)
          {
             client.stateMachine.ChangeState(client.exitFromBarClientState);
+         }
+
+         if (Vector3.Distance(master.transform.position, client.transform.position) < distanceToMaster)
+         {
+            client.stateMachine.ChangeState(client.makingAnOrderClientState);
          }
       }
    }
