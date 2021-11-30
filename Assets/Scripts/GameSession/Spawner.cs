@@ -7,7 +7,7 @@ namespace Raketa420
    public class Spawner : MonoBehaviour
    {
       [SerializeField] private GameObject masterPrefab;
-      [SerializeField] private GameObject clientPrefab;
+      [SerializeField] private GameObject[] clientPrefabs;
       [SerializeField] private Transform charactersSpawnParent;
 
       public static event Action OnMasterCreated;
@@ -28,9 +28,18 @@ namespace Raketa420
          OnMasterCreated?.Invoke();
       }
 
-      public void SpawnClient(Vector3 position)
+      public void SpawnRandomClient(Vector3 position)
       {
-         Spawn(clientPrefab, position, Quaternion.identity, charactersSpawnParent);
+         if (clientPrefabs.Length < 1)
+         {
+            Debug.LogError("Пустой массив префабов клиентов");
+
+            return;
+         }
+
+         var randomIndex = UnityEngine.Random.Range(0, clientPrefabs.Length);
+
+         Spawn(clientPrefabs[randomIndex], position, Quaternion.identity, charactersSpawnParent);
 
          OnClientCreated?.Invoke();
       }
@@ -63,7 +72,7 @@ namespace Raketa420
          {
             yield return new WaitForSeconds(period);
 
-            SpawnClient(position);
+            SpawnRandomClient(position);
 
             amount--;
 
