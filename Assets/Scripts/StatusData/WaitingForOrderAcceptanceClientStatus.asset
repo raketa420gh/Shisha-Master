@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02c6e5f7d7a50645b5aca9e89f469c1, type: 3}
   m_Name: WaitingForOrderAcceptanceClientStatus
   m_EditorClassIdentifier: 
-  Text: "\u041E\u0436\u0438\u0434\u0430\u044E \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0430"
+  Text: "\u0425\u043E\u0447\u0443 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C"
   Sprite: {fileID: 21300000, guid: 7f2540d21a128574fb678471e7616c07, type: 3}

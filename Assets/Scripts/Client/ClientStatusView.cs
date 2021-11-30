@@ -5,8 +5,8 @@ namespace Raketa420
 {
    public class ClientStatusView : MonoBehaviour
    {
-      private TextMeshProUGUI statusTMP;
       [SerializeField] private StatusCanvas statusCanvas;
+      [SerializeField] private TextMeshProUGUI statusTMP;
       private ClientBank bank;
 
       private void Awake()
@@ -32,6 +32,7 @@ namespace Raketa420
       private void Initialize()
       {
          statusCanvas = GetComponentInChildren<StatusCanvas>();
+         statusTMP = statusCanvas.GetComponentInChildren<TextMeshProUGUI>();
       }
 
       public void SetStatusFillerValue(float normalized)
@@ -47,6 +48,7 @@ namespace Raketa420
       private void OnClientStatusChanged(StatusData status)
       {
          statusCanvas.SetImage(status.Sprite);
+         SetStatusText(status.Text);
       }
    }
 }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02c6e5f7d7a50645b5aca9e89f469c1, type: 3}
   m_Name: MakingAnOrderClientStatus
   m_EditorClassIdentifier: 
-  Text: "\u0417\u0430\u043A\u0430\u0437\u044B\u0432\u0430\u044E"
+  Text: "\u0416\u0434\u0443 \u0437\u0430\u043A\u0430\u0437"
   Sprite: {fileID: 21300000, guid: 097d49471a0c0994fac7e953b8128e7a, type: 3}
