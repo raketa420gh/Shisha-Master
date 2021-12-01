@@ -5,33 +5,34 @@ namespace Raketa420
 {
    public class BarBank : MonoBehaviour
    {
-      private int maxHapinnessPointsAmount;
-      private int currentHappinessPointsAmount;
+      private int maxHapinnessPoints;
+      private int currentHappinessPoints;
 
       public static event Action<float> OnHappinessPointsChanged;
 
       private void Start()
       {
          Initialize();
+         ChangeHappinessPoints();
       }
 
       private void Initialize()
       {
          var gameSession = FindObjectOfType<GameSession>();
 
-         maxHapinnessPointsAmount = gameSession.Data.MaxHappinessPointsAmount;
-         currentHappinessPointsAmount = 20;
+         maxHapinnessPoints = gameSession.Data.MaxHappinessPoints;
+         currentHappinessPoints = 20;
       }
 
       public void IncreaseHappinnessPoints(int amount)
       {
          if (amount > 0)
          {
-            currentHappinessPointsAmount += amount;
+            currentHappinessPoints += amount;
 
-            if (currentHappinessPointsAmount > maxHapinnessPointsAmount)
+            if (currentHappinessPoints > maxHapinnessPoints)
             {
-               currentHappinessPointsAmount = maxHapinnessPointsAmount;
+               currentHappinessPoints = maxHapinnessPoints;
             }
          }
          else
@@ -46,11 +47,11 @@ namespace Raketa420
       {
          if (amount > 0)
          {
-            currentHappinessPointsAmount -= amount;
+            currentHappinessPoints -= amount;
 
-            if (currentHappinessPointsAmount < 0)
+            if (currentHappinessPoints < 0)
             {
-               currentHappinessPointsAmount = 0;
+               currentHappinessPoints = 0;
             }
          }
          else
@@ -63,7 +64,7 @@ namespace Raketa420
 
       private void ChangeHappinessPoints()
       {
-         var normalized = currentHappinessPointsAmount / maxHapinnessPointsAmount;
+         var normalized = (float)currentHappinessPoints / maxHapinnessPoints;
          OnHappinessPointsChanged?.Invoke(normalized);
       }
    }

@@ -9,8 +9,19 @@ namespace Raketa420
       [SerializeField] private GameObject hudPanel;
       [SerializeField] private GameObject masterStatusPanel;
       [SerializeField] private TextMeshProUGUI masterStatusTMP;
+      [SerializeField] private Image happinessPointsFiller;
 
       public TextMeshProUGUI MasterStatusTMP => masterStatusTMP;
+
+      private void OnEnable()
+      {
+         BarBank.OnHappinessPointsChanged += OnHappinessPointsChanged;
+      }
+
+      private void OnDisable()
+      {
+         BarBank.OnHappinessPointsChanged -= OnHappinessPointsChanged;
+      }
 
       public void EnableHUD(bool isActive)
       {
@@ -20,6 +31,11 @@ namespace Raketa420
       public void EnableMasterStatusPanel(bool isActive)
       {
          masterStatusPanel.gameObject.SetActive(isActive);
+      }
+
+      private void OnHappinessPointsChanged(float normalized)
+      {
+         happinessPointsFiller.fillAmount = normalized;
       }
    }
 }

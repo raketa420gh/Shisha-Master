@@ -8,6 +8,6 @@ namespace Raketa420
    {
       public Vector3 MasterStartPosition;
       public Vector3 ClientStartPosition;
-      public int MaxHappinessPointsAmount;
+      public int MaxHappinessPoints;
    }
 }
