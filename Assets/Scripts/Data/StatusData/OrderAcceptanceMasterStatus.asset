@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d805749c7c248dc43aa3e10128f37897, type: 3}
-  m_Name: SessionSettings_1
+  m_Script: {fileID: 11500000, guid: d02c6e5f7d7a50645b5aca9e89f469c1, type: 3}
+  m_Name: OrderAcceptanceMasterStatus
   m_EditorClassIdentifier: 
-  MasterStartPosition: {x: 1.5, y: 1, z: -7.5}
-  ClientStartPosition: {x: -2.5, y: 1, z: -7.5}
+  Text: "\u041F\u0440\u0438\u043D\u0438\u043C\u0430\u044E \u0437\u0430\u043A\u0430\u0437"
+  Sprite: {fileID: 21300000, guid: 097d49471a0c0994fac7e953b8128e7a, type: 3}

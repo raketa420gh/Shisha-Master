@@ -8,6 +8,8 @@ namespace Raketa420
    {
       [SerializeField] private StatusData inactionStatusData;
       [SerializeField] private StatusData walkStatusData;
+      [SerializeField] private StatusData orderAcceptanceStatusData;
+
       private StatusData currentStatus;
 
       public static event Action<StatusData> OnStatusChanged;
@@ -23,6 +25,11 @@ namespace Raketa420
       public void SetWalkStatus()
       {
          SetStatus(walkStatusData);
+      }
+
+      public void SetOrderAcceptanceStatus()
+      {
+         SetStatus(orderAcceptanceStatusData);
       }
 
       private void SetStatus(StatusData status)
