@@ -20,12 +20,7 @@ namespace Raketa420
          MasterBank.OnStatusChanged -= OnMasterStatusChanged;
       }
 
-      private void Start()
-      {
-         Initialize();
-      }
-
-      private void Initialize()
+      public void Initialize()
       {
          statusCanvas = GetComponentInChildren<StatusCanvas>();
 

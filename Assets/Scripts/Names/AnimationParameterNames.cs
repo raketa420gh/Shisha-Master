@@ -4,5 +4,6 @@ namespace Raketa420
    {
       public const string IsWalking = "IsWalking";
       public const string IsSitting = "IsSitting";
+      public const string IsInside = "IsInside";
    }
 }

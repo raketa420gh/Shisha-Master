@@ -6,6 +6,7 @@ namespace Raketa420
    public class CameraView : MonoBehaviour
    {
       [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
+      [SerializeField] private Animator cinemachineAnimator;
 
       private float startSize = 4.5f;
       private float finalSize = 6f;
@@ -28,27 +29,27 @@ namespace Raketa420
          InitializeAwake();
       }
 
-      private void Update()
-      {
-         cinemachineVirtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(cinemachineVirtualCamera.m_Lens.OrthographicSize, finalSize, 1f);
-      }
-
       private void InitializeAwake()
       {
          if (!cinemachineVirtualCamera)
          {
             cinemachineVirtualCamera = GetComponentInChildren<CinemachineVirtualCamera>();
          }
+
+         if (!cinemachineAnimator)
+         {
+            cinemachineAnimator = GetComponent<Animator>();
+         }
       }
 
       private void OnHookahsWorkZoneMasterEntered()
       {
-         finalSize = 4.5f;
+         cinemachineAnimator.SetBool(AnimationParameterNames.IsInside, true);
       }
 
       private void OnHookahsWorkZoneMasterLeft()
       {
-         finalSize = 6f;
+         cinemachineAnimator.SetBool(AnimationParameterNames.IsInside, false);
       }
    }
 }

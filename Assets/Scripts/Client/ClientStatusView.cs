@@ -24,12 +24,7 @@ namespace Raketa420
          bank.OnStatusChanged -= OnClientStatusChanged;
       }
 
-      private void Start()
-      {
-         Initialize();
-      }
-
-      private void Initialize()
+      public void Initialize()
       {
          statusCanvas = GetComponentInChildren<StatusCanvas>();
          statusTMP = statusCanvas.GetComponentInChildren<TextMeshProUGUI>();

@@ -37,20 +37,9 @@ namespace Raketa420
          UserInput.OnClicked += UserInputOnClicked;
       }
 
-      private void UserInputOnClicked(Vector3 point)
-      {
-         movement.MoveTo(point);
-         stateMachine.ChangeState(walkState);
-      }
-
-      private void Awake()
-      {
-         InitializeSelfComponents();
-      }
-
       private void Start()
       {
-         InitializeStateMachine();
+         Initialize();
       }
 
       private void Update()
@@ -58,12 +47,17 @@ namespace Raketa420
          stateMachine.CurrentState.LogicUpdate();
       }
 
-      private void InitializeSelfComponents()
+      private void Initialize()
       {
          bank = GetComponent<MasterBank>();
          animation = GetComponent<MasterAnimation>();
          movement = GetComponent<MasterMovement>();
          statusView = GetComponent<MasterStatusView>();
+
+         movement.Initialize();
+         statusView.Initialize();
+
+         InitializeStateMachine();
       }
 
       private void InitializeStateMachine()
@@ -73,6 +67,12 @@ namespace Raketa420
          walkState = new WalkMasterState(this, stateMachine);
 
          stateMachine.Initialize(inactionState);
+      }
+      
+      private void UserInputOnClicked(Vector3 point)
+      {
+         movement.MoveTo(point);
+         stateMachine.ChangeState(walkState);
       }
    }
 }

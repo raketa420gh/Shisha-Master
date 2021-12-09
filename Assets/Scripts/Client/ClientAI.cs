@@ -19,7 +19,7 @@ namespace Raketa420
 
       public Transform GetExitFromBar()
       {
-         var exitFromBar = FindObjectOfType<ExitFromBar>();
+         var exitFromBar = FindObjectOfType<ExitFromBarZone>();
          var exitFromBarPosition = exitFromBar.transform;
 
          return exitFromBarPosition;

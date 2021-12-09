@@ -34,14 +34,9 @@ namespace Raketa420
       public ClientStatusView StatusView => statusView;
       public ClientAI AI => ai;
 
-      private void Awake()
-      {
-         InitializeSelfComponents();
-      }
-
       private void Start()
       {
-         InitializeStateMachine();
+         Initialize();
       }
 
       private void Update()
@@ -61,13 +56,18 @@ namespace Raketa420
          Destroy(gameObject);
       }
 
-      private void InitializeSelfComponents()
+      private void Initialize()
       {
          bank = GetComponent<ClientBank>();
          animation = GetComponent<ClientAnimation>();
          movement = GetComponent<ClientMovement>();
          statusView = GetComponent<ClientStatusView>();
          ai = GetComponent<ClientAI>();
+
+         movement.Initialize();
+         statusView.Initialize();
+
+         InitializeStateMachine();
       }
 
       private void InitializeStateMachine()

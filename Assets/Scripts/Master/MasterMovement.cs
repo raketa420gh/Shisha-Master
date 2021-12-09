@@ -13,12 +13,7 @@ namespace Raketa420
 
       public AIPath AiPath => aiPath;
 
-      private void Awake()
-      {
-         InitializeComponents();
-      }
-
-      private void InitializeComponents()
+      public void Initialize()
       {
          seeker = GetComponent<Seeker>();
          aiPath = GetComponent<AIPath>();
