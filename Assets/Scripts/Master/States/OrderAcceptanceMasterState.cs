@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Raketa420
 {
    public class OrderAcceptanceMasterState : MasterState
@@ -14,11 +12,6 @@ namespace Raketa420
 
          master.Bank.SetOrderAcceptanceStatus();
          master.Animation.SetIdleAnimation();
-      }
-
-      public override void LogicUpdate()
-      {
-         base.LogicUpdate();
       }
    }
 }

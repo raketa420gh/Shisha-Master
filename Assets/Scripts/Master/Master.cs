@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Pathfinding;
 
@@ -13,29 +12,30 @@ namespace Raketa420
 
    public class Master : MonoBehaviour
    {
-      public MasterStateMachine stateMachine;
-      public InactionMasterState inactionState;
-      public WalkMasterState walkState;
-
+      [SerializeField] private UserInput input;
+      
       private MasterBank bank;
       private MasterAnimation animation;
       private MasterMovement movement;
       private MasterStatusView statusView;
+      
+      public MasterStateMachine stateMachine;
+      public InactionMasterState inactionState;
+      public WalkMasterState walkState;
 
       public MasterBank Bank => bank;
       public MasterAnimation Animation => animation;
       public MasterMovement Movement => movement;
       public MasterStatusView StatusView => statusView;
       
-      
       private void OnEnable()
       {
-         UserInput.OnClicked += UserInputOnClicked;
+         input.OnClicked += UserInputOnClicked;
       }
 
       private void OnDisable()
       {
-         UserInput.OnClicked += UserInputOnClicked;
+         input.OnClicked += UserInputOnClicked;
       }
 
       private void Start()
@@ -54,6 +54,11 @@ namespace Raketa420
          animation = GetComponent<MasterAnimation>();
          movement = GetComponent<MasterMovement>();
          statusView = GetComponent<MasterStatusView>();
+
+         if (input == null)
+         {
+            input = FindObjectOfType<UserInput>();
+         }
 
          movement.Initialize();
          statusView.Initialize();

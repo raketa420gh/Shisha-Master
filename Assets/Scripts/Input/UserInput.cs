@@ -8,9 +8,7 @@ namespace Raketa420
       [SerializeField] private LayerMask whatCanBeClickedOn;
       private bool isEnabled = false;
 
-      public static event Action<Vector3> OnClicked;
-      public static event Action OnPressedM;
-      public static event Action OnPressedC;
+      public event Action<Vector3> OnClicked;
 
       private void Update()
       {
@@ -30,21 +28,11 @@ namespace Raketa420
                OnClicked?.Invoke(point);
             }
          }
-
-         if (Input.GetKeyDown(KeyCode.M))
-         {
-            OnPressedM?.Invoke();
-         }
-
-         if (Input.GetKeyDown(KeyCode.C))
-         {
-            OnPressedC?.Invoke();
-         }
       }
 
-      public void Enable(bool isEnabled)
+      public void Enable(bool isActive)
       {
-         this.isEnabled = isEnabled;
+         isEnabled = isActive;
       }
    }
 }

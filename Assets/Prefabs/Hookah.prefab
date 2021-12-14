@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 556240640996385333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.3, z: 0.2}
   m_Children: []
   m_Father: {fileID: 2625313800639091741}
   m_RootOrder: 0
@@ -106,6 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2625313800639091741}
   - component: {fileID: 3634469000581226271}
+  - component: {fileID: 4182263936148196208}
   m_Layer: 0
   m_Name: Hookah
   m_TagString: Untagged
@@ -144,3 +145,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4182263936148196208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296049373776743885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e2ff0bbce1ee64d8d972f646414188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

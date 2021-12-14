@@ -53,7 +53,6 @@ namespace Raketa420
                {
                   fillerImage = image;
                }
-
             }
          }
       }

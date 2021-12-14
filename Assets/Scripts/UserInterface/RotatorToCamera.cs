@@ -2,14 +2,16 @@ using UnityEngine;
 
 namespace Raketa420
 {
-
    public class RotatorToCamera : MonoBehaviour
    {
+      private Camera mainCamera;
       private Canvas canvas;
       private Quaternion cameraRotation;
 
       private void Awake()
       {
+         mainCamera = Camera.main;
+         
          if (!canvas)
          {
             canvas = GetComponent<Canvas>();
@@ -18,8 +20,8 @@ namespace Raketa420
 
       private void Start()
       {
-         cameraRotation = Camera.main.transform.rotation;
-         canvas.worldCamera = Camera.main;
+         cameraRotation = mainCamera.transform.rotation;
+         canvas.worldCamera = mainCamera;
       }
 
       void Update()

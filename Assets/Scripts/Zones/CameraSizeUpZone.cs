@@ -3,7 +3,7 @@ using System;
 
 namespace Raketa420
 {
-   public class HookahsWorkZone : MonoBehaviour
+   public class CameraSizeUpZone : MonoBehaviour
    {
       public static event Action OnMasterEntered;
       public static event Action OnMasterLeft;

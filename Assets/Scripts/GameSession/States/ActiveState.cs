@@ -1,4 +1,3 @@
-using UnityEditor.AI;
 using UnityEngine;
 
 namespace Raketa420
@@ -14,16 +13,9 @@ namespace Raketa420
          base.Enter();
 
          gameSession.Input.Enable(true);
-         //NavMeshBuilder.ClearAllNavMeshes();
-         //NavMeshBuilder.BuildNavMesh();
 
          var randomPeriod = Random.Range(5f, 20f);
          gameSession.Spawner.StartSpawningClients(gameSession.Data.ClientStartPosition, 10, randomPeriod);
-      }
-
-      public override void LogicUpdate()
-      {
-         base.LogicUpdate();
       }
    }
 }

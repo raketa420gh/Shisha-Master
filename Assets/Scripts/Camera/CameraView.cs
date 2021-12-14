@@ -14,14 +14,14 @@ namespace Raketa420
 
       private void OnEnable()
       {
-         HookahsWorkZone.OnMasterEntered += OnHookahsWorkZoneMasterEntered;
-         HookahsWorkZone.OnMasterLeft += OnHookahsWorkZoneMasterLeft;
+         CameraSizeUpZone.OnMasterEntered += OnHookahsWorkZoneMasterEntered;
+         CameraSizeUpZone.OnMasterLeft += OnHookahsWorkZoneMasterLeft;
       }
 
       private void OnDisable()
       {
-         HookahsWorkZone.OnMasterEntered -= OnHookahsWorkZoneMasterEntered;
-         HookahsWorkZone.OnMasterLeft -= OnHookahsWorkZoneMasterLeft;
+         CameraSizeUpZone.OnMasterEntered -= OnHookahsWorkZoneMasterEntered;
+         CameraSizeUpZone.OnMasterLeft -= OnHookahsWorkZoneMasterLeft;
       }
 
       private void Awake()
