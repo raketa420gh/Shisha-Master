@@ -12,6 +12,7 @@ namespace Raketa420
       [SerializeField] private UserInterface userInterface;
       [SerializeField] private UserInput input;
       [SerializeField] private Spawner spawner;
+      [SerializeField] private Bench bench;
 
       [Header("Session Settings")]
       [SerializeField] private GameSessionData data;
@@ -21,22 +22,9 @@ namespace Raketa420
       public Spawner Spawner => spawner;
       public GameSessionData Data => data;
 
-      private void OnEnable()
-      {
-         UserInput.OnPressedM += OnPressedM;
-         UserInput.OnPressedC += OnPressedC;
-      }
-
-      private void OnDisable()
-      {
-         UserInput.OnPressedM -= OnPressedM;
-         UserInput.OnPressedC -= OnPressedC;
-      }
-
       private void Start()
       {
-         InitializeComponents();
-         InitializeStateMachine();
+         Initialize();
       }
 
       private void Update()
@@ -44,7 +32,7 @@ namespace Raketa420
          stateMachine.CurrentState.LogicUpdate();
       }
 
-      private void InitializeComponents()
+      private void Initialize()
       {
          if (input == null)
          {
@@ -60,6 +48,15 @@ namespace Raketa420
          {
             userInterface = FindObjectOfType<UserInterface>();
          }
+
+         if (bench == null)
+         {
+            bench = FindObjectOfType<Bench>();
+         }
+         
+         InitializeStateMachine();
+         
+         bench.Initialize();
       }
 
       private void InitializeStateMachine()
@@ -69,16 +66,6 @@ namespace Raketa420
          pauseState = new PauseState(this, stateMachine);
 
          stateMachine.Initialize(activeState);
-      }
-
-      private void OnPressedM()
-      {
-         spawner.SpawnMaster(data.MasterStartPosition);
-      }
-
-      private void OnPressedC()
-      {
-         spawner.SpawnRandomClient(data.ClientStartPosition);
       }
    }
 }

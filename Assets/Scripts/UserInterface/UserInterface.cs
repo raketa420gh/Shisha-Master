@@ -6,8 +6,8 @@ namespace Raketa420
 {
    public class UserInterface : MonoBehaviour
    {
-      [SerializeField] private GameObject hudPanel;
-      [SerializeField] private GameObject masterStatusPanel;
+      [SerializeField] private UIPanel hudPanel;
+      [SerializeField] private UIPanel masterStatusPanel;
       [SerializeField] private TextMeshProUGUI masterStatusTMP;
       [SerializeField] private Image happinessPointsFiller;
 
@@ -15,12 +15,12 @@ namespace Raketa420
       
       public void EnableHUD(bool isActive)
       {
-         hudPanel.gameObject.SetActive(isActive);
+         hudPanel.SetActive(isActive);
       }
 
       public void EnableMasterStatusPanel(bool isActive)
       {
-         masterStatusPanel.gameObject.SetActive(isActive);
+         masterStatusPanel.SetActive(isActive);
       }
 
       private void OnHappinessPointsChanged(float normalized)

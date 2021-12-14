@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Pathfinding;
 
@@ -25,8 +26,8 @@ namespace Raketa420
       public MasterAnimation Animation => animation;
       public MasterMovement Movement => movement;
       public MasterStatusView StatusView => statusView;
-
-
+      
+      
       private void OnEnable()
       {
          UserInput.OnClicked += UserInputOnClicked;
