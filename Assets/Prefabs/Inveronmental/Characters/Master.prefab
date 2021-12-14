@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6559206932092704275}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,6 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inactionStatusData: {fileID: 11400000, guid: 2828e868068e6df408909ee2dbe26730, type: 2}
   walkStatusData: {fileID: 11400000, guid: 60f1066882d7fa845b3a40fa75b12ccb, type: 2}
+  orderAcceptanceStatusData: {fileID: 11400000, guid: 93ec1528d080a7b41aa7965af9025ceb,
+    type: 2}
 --- !u!114 &8870510675732912968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +356,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: StatusCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 143614186722171656, guid: 87566728ea8679146acb6aaa8cb720c8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558468583117335717, guid: 87566728ea8679146acb6aaa8cb720c8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5614423620579878424, guid: 87566728ea8679146acb6aaa8cb720c8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -458,6 +470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888538570833799771, guid: 87566728ea8679146acb6aaa8cb720c8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2364344332033360042, guid: 87566728ea8679146acb6aaa8cb720c8, type: 3}
