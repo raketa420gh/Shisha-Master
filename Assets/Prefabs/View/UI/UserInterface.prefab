@@ -817,6 +817,7 @@ MonoBehaviour:
   masterStatusTMP: {fileID: 4115220504666794823}
   happinessPointsFiller: {fileID: 288862490}
   interactionItemButton: {fileID: 1446346753}
+  craftButton: {fileID: 3598619624637887150}
 --- !u!1 &4010214499637854324
 GameObject:
   m_ObjectHideFlags: 0

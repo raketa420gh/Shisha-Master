@@ -11,6 +11,8 @@ namespace Raketa420
 
         public static event Action OnItemLifted;
         public static event Action OnItemDropped;
+        public static event Action OnBenchZoneEntered;
+        public static event Action OnBenchZoneExited;
 
         public void Initialize()
         {
@@ -35,6 +37,11 @@ namespace Raketa420
         
         private void OnTriggerEnter(Collider other)
         {
+            if (other.GetComponent<Bench>())
+            {
+                OnBenchZoneEntered?.Invoke();
+            }
+            
             if (!canLift) 
                 return;
             
@@ -48,6 +55,14 @@ namespace Raketa420
             canLift = false;
             
             OnItemLifted?.Invoke();
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.GetComponent<Bench>())
+            {
+                OnBenchZoneExited?.Invoke();
+            }
         }
 
         private void EnableCanLift()

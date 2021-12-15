@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -12,6 +11,7 @@ namespace Raketa420
       [SerializeField] private TextMeshProUGUI masterStatusTMP;
       [SerializeField] private Image happinessPointsFiller;
       [SerializeField] private Button interactionItemButton;
+      [SerializeField] private Button craftButton;
 
       public TextMeshProUGUI MasterStatusTMP => masterStatusTMP;
 
@@ -32,6 +32,11 @@ namespace Raketa420
       public void EnableInteractionItemButton(bool isActive)
       {
          interactionItemButton.gameObject.SetActive(isActive);
+      }
+      
+      public void EnableCraftButton(bool isActive)
+      {
+         craftButton.gameObject.SetActive(isActive);
       }
 
       private void OnHappinessPointsChanged(float normalized)

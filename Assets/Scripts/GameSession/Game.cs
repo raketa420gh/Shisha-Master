@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Raketa420
@@ -33,12 +32,16 @@ namespace Raketa420
       {
          MasterInteraction.OnItemLifted += MasterOnItemLifted;
          MasterInteraction.OnItemDropped += MasterOnItemDropped;
+         MasterInteraction.OnBenchZoneEntered += OnMasterEntered;
+         MasterInteraction.OnBenchZoneExited += OnMasterExited;
       }
 
       private void OnDisable()
       {
          MasterInteraction.OnItemLifted -= MasterOnItemLifted;
          MasterInteraction.OnItemDropped -= MasterOnItemDropped;
+         MasterInteraction.OnBenchZoneEntered -= OnMasterEntered;
+         MasterInteraction.OnBenchZoneExited -= OnMasterExited;
       }
 
       private void Update()
@@ -49,6 +52,11 @@ namespace Raketa420
       public void DropItem()
       {
          master.Interaction.DropItem();
+      }
+
+      public void CraftHookah()
+      {
+         bench.CraftHookah();
       }
 
       private void Initialize()
@@ -88,6 +96,18 @@ namespace Raketa420
       private void MasterOnItemDropped()
       {
          ui.EnableInteractionItemButton(false);
+      }
+      
+      private void OnMasterEntered()
+      {
+         bench.BenchUI.SetActiveCanvas(true);
+         ui.EnableCraftButton(true);
+      }
+
+      private void OnMasterExited()
+      {
+         bench.BenchUI.SetActiveCanvas(false);
+         ui.EnableCraftButton(false);
       }
    }
 }

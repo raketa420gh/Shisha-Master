@@ -11,33 +11,16 @@ namespace Raketa420
       [SerializeField] private Transform craftDoneTransform;
       [SerializeField] private GameObject hookahPrefab;
 
-      private Master master;
-
-      private void OnTriggerEnter(Collider other)
-      {
-         if (other.GetComponent<Master>())
-         {
-            benchUI.SetActiveCanvas(true);
-         }
-      }
-      
-      private void OnTriggerExit(Collider other)
-      {
-         if (other.GetComponent<Master>())
-         {
-            benchUI.SetActiveCanvas(false);
-         }
-      }
+      public BenchUserInterface BenchUI => benchUI;
 
       public void Initialize()
       {
          benchUI = GetComponent<BenchUserInterface>();
-         master = FindObjectOfType<Master>();
          
          benchUI.SetActiveCanvas(false);
       }
 
-      private void CraftHookah()
+      public void CraftHookah()
       {
          Craft(hookahPrefab);
       }

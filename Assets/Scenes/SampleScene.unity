@@ -756,13 +756,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 93155823}
-    - target: {fileID: 1446346753, guid: 200bc18de1e7c9944a2c40808d4ded1a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DropItem
-      objectReference: {fileID: 0}
-    - target: {fileID: 1446346753, guid: 200bc18de1e7c9944a2c40808d4ded1a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Raketa420.Game, Assembly-CSharp
+    - target: {fileID: 1446346754, guid: 200bc18de1e7c9944a2c40808d4ded1a, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1775177178126906107, guid: 200bc18de1e7c9944a2c40808d4ded1a,
         type: 3}
@@ -828,6 +824,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UserInterface
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598619624637887150, guid: 200bc18de1e7c9944a2c40808d4ded1a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 93155823}
+    - target: {fileID: 3598619624637887150, guid: 200bc18de1e7c9944a2c40808d4ded1a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CraftHookah
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178650366674272010, guid: 200bc18de1e7c9944a2c40808d4ded1a,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 200bc18de1e7c9944a2c40808d4ded1a, type: 3}
