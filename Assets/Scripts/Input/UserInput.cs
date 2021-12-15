@@ -6,7 +6,7 @@ namespace Raketa420
    public class UserInput : MonoBehaviour
    {
       [SerializeField] private LayerMask whatCanBeClickedOn;
-      private bool isEnabled = false;
+      private bool isEnabled;
 
       public event Action<Vector3> OnClicked;
 

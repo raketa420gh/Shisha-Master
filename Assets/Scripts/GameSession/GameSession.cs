@@ -56,6 +56,7 @@ namespace Raketa420
          
          InitializeStateMachine();
          
+         userInterface.Initialize();
          bench.Initialize();
       }
 

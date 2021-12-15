@@ -13,16 +13,6 @@ namespace Raketa420
 
       private Master master;
 
-      private void OnEnable()
-      {
-         benchUI.Canvas.OnClicked += OnBenchCanvasClicked;
-      }
-
-      private void OnDisable()
-      {
-         benchUI.Canvas.OnClicked -= OnBenchCanvasClicked;
-      }
-
       private void OnTriggerEnter(Collider other)
       {
          if (other.GetComponent<Master>())
@@ -44,8 +34,6 @@ namespace Raketa420
          benchUI = GetComponent<BenchUserInterface>();
          master = FindObjectOfType<Master>();
          
-         benchUI.Initialize();
-         
          benchUI.SetActiveCanvas(false);
       }
 
@@ -57,11 +45,6 @@ namespace Raketa420
       private void Craft(GameObject item)
       {
          Instantiate(item, craftDoneTransform.position, Quaternion.identity);
-      }
-
-      private void OnBenchCanvasClicked()
-      {
-         CraftHookah();
       }
    }
 }

@@ -8,6 +8,7 @@ namespace Raketa420
    [RequireComponent(typeof(MasterMovement))]
    [RequireComponent(typeof(Seeker))]
    [RequireComponent(typeof(MasterStatusView))]
+   [RequireComponent(typeof(MasterInteraction))]
    [RequireComponent(typeof(MasterStateMachine))]
 
    public class Master : MonoBehaviour
@@ -18,6 +19,7 @@ namespace Raketa420
       private MasterAnimation animation;
       private MasterMovement movement;
       private MasterStatusView statusView;
+      private MasterInteraction interaction;
       
       public MasterStateMachine stateMachine;
       public InactionMasterState inactionState;
@@ -27,6 +29,7 @@ namespace Raketa420
       public MasterAnimation Animation => animation;
       public MasterMovement Movement => movement;
       public MasterStatusView StatusView => statusView;
+      public MasterInteraction Interaction => interaction;
       
       private void OnEnable()
       {
@@ -54,14 +57,14 @@ namespace Raketa420
          animation = GetComponent<MasterAnimation>();
          movement = GetComponent<MasterMovement>();
          statusView = GetComponent<MasterStatusView>();
+         interaction = GetComponent<MasterInteraction>();
 
-         if (input == null)
-         {
+         if (!input)
             input = FindObjectOfType<UserInput>();
-         }
 
          movement.Initialize();
          statusView.Initialize();
+         interaction.Initialize();
 
          InitializeStateMachine();
       }

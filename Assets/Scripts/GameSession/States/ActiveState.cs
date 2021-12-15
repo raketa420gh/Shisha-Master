@@ -13,6 +13,7 @@ namespace Raketa420
          base.Enter();
 
          gameSession.Input.Enable(true);
+         gameSession.UserInterface.EnableDropItemButton(false);
 
          var randomPeriod = Random.Range(5f, 20f);
          gameSession.Spawner.StartSpawningClients(gameSession.Data.ClientStartPosition, 10, randomPeriod);
