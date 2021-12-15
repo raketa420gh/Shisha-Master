@@ -6,11 +6,11 @@ namespace Raketa420
     public class MasterInteraction : MonoBehaviour
     {
         [SerializeField] private Transform hand;
-        private bool canCarry = true;
-        private PickUpItem currentItemInHand;
+        private bool canLift = true;
+        private LiftedItem currentItemInHand;
 
-        public event Action OnCarryStarted;
-        public event Action OnCarryStopped;
+        public static event Action OnItemLifted;
+        public static event Action OnItemDropped;
 
         public void Initialize()
         {
@@ -23,36 +23,36 @@ namespace Raketa420
             {
                 currentItemInHand.Drop();
                 currentItemInHand = null;
-                Invoke(nameof(EnableCanCarry), 3f);
+                Invoke(nameof(EnableCanLift), 3f);
             
-                OnCarryStopped?.Invoke();
+                OnItemDropped?.Invoke();
             }
             else
             {
-                Debug.LogError("You are no carry item");
+                Debug.LogError("You can not lift an item");
             }
         }
         
         private void OnTriggerEnter(Collider other)
         {
-            if (!canCarry) 
+            if (!canLift) 
                 return;
             
-            var pickUpItem = other.GetComponent<PickUpItem>();
+            var pickUpItem = other.GetComponent<LiftedItem>();
 
             if (pickUpItem == null) 
                 return;
             
-            pickUpItem.Carry(transform, hand);
+            pickUpItem.Lift(transform, hand);
             currentItemInHand = pickUpItem;
-            canCarry = false;
+            canLift = false;
             
-            OnCarryStarted?.Invoke();
+            OnItemLifted?.Invoke();
         }
 
-        private void EnableCanCarry()
+        private void EnableCanLift()
         {
-            canCarry = true;
+            canLift = true;
         }
     }
 }

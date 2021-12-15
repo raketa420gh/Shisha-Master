@@ -11,7 +11,7 @@ namespace Raketa420
       [SerializeField] private UIPanel masterStatusPanel;
       [SerializeField] private TextMeshProUGUI masterStatusTMP;
       [SerializeField] private Image happinessPointsFiller;
-      [SerializeField] private Button dropItemButton;
+      [SerializeField] private Button interactionItemButton;
 
       public TextMeshProUGUI MasterStatusTMP => masterStatusTMP;
 
@@ -29,9 +29,9 @@ namespace Raketa420
          masterStatusPanel.SetActive(isActive);
       }
 
-      public void EnableDropItemButton(bool isActive)
+      public void EnableInteractionItemButton(bool isActive)
       {
-         dropItemButton.gameObject.SetActive(isActive);
+         interactionItemButton.gameObject.SetActive(isActive);
       }
 
       private void OnHappinessPointsChanged(float normalized)

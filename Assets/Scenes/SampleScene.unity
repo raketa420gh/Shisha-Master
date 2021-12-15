@@ -166,6 +166,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &93155823 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8117690597442848888, guid: 13239c79ec39bbf4bb2c5aaf15537956,
+    type: 3}
+  m_PrefabInstance: {fileID: 8117690597327704902}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5276c9bd3da4a4594abe191767759a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &113922124 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6908877529034652278, guid: 866c7e093258f774981e491932ef5b73,
@@ -247,51 +259,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e382c77cf409bfd42bc8ed55fab69150, type: 3}
---- !u!1 &339781153
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 339781155}
-  - component: {fileID: 339781154}
-  m_Layer: 0
-  m_Name: DropItemHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &339781154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339781153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecc59bb4eb4e03f4097ffa2fc434460c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  master: {fileID: 1546001319}
-  ui: {fileID: 3282023079839276289}
---- !u!4 &339781155
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339781153}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &705507994 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 6734768096944678772, guid: d5468b6fe4dd9c0438827fbfc9e4dd0e,
@@ -788,14 +755,14 @@ PrefabInstance:
     - target: {fileID: 1446346753, guid: 200bc18de1e7c9944a2c40808d4ded1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 339781154}
+      objectReference: {fileID: 93155823}
     - target: {fileID: 1446346753, guid: 200bc18de1e7c9944a2c40808d4ded1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DropItem
       objectReference: {fileID: 0}
     - target: {fileID: 1446346753, guid: 200bc18de1e7c9944a2c40808d4ded1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Raketa420.DropItemHandler, Assembly-CSharp
+      value: Raketa420.Game, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1775177178126906107, guid: 200bc18de1e7c9944a2c40808d4ded1a,
         type: 3}
@@ -1157,6 +1124,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8117690597442848888, guid: 13239c79ec39bbf4bb2c5aaf15537956,
         type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 3282023079839276289}
+    - target: {fileID: 8117690597442848888, guid: 13239c79ec39bbf4bb2c5aaf15537956,
+        type: 3}
       propertyPath: bench
       value: 
       objectReference: {fileID: 2034673853}
@@ -1165,6 +1137,11 @@ PrefabInstance:
       propertyPath: input
       value: 
       objectReference: {fileID: 113922124}
+    - target: {fileID: 8117690597442848888, guid: 13239c79ec39bbf4bb2c5aaf15537956,
+        type: 3}
+      propertyPath: master
+      value: 
+      objectReference: {fileID: 1546001319}
     - target: {fileID: 8117690597442848888, guid: 13239c79ec39bbf4bb2c5aaf15537956,
         type: 3}
       propertyPath: spawner
@@ -1233,7 +1210,7 @@ PrefabInstance:
     - target: {fileID: 8117690597442848891, guid: 13239c79ec39bbf4bb2c5aaf15537956,
         type: 3}
       propertyPath: m_Name
-      value: GameSession
+      value: Game
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13239c79ec39bbf4bb2c5aaf15537956, type: 3}

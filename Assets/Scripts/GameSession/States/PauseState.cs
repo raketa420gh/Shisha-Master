@@ -1,19 +1,33 @@
+using UnityEngine;
+
 namespace Raketa420
 {
-   public class PauseState : GameSessionState
+   public class PauseState : GameState
    {
-      public PauseState(GameSession gameSession, GameSessionStateMachine stateMachine) : base(gameSession, stateMachine)
+      public PauseState(Game game, GameStateMachine stateMachine) : base(game, stateMachine)
       {
       }
 
       public override void Enter()
       {
-         base.Enter();
+         SetActivePause(true);
       }
 
-      public override void LogicUpdate()
+      public override void Exit()
       {
-         base.LogicUpdate();
+         SetActivePause(false);
+      }
+
+      private void SetActivePause(bool isActive)
+      {
+         if (isActive)
+         {
+            Time.timeScale = 0f;
+         }
+         else
+         {
+            Time.timeScale = 1f;
+         }
       }
    }
 }

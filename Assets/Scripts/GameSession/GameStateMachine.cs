@@ -2,17 +2,17 @@ using UnityEngine;
 
 namespace Raketa420
 {
-   public class GameSessionStateMachine : MonoBehaviour
+   public class GameStateMachine : MonoBehaviour
    {
-      public GameSessionState CurrentState { get; private set; }
+      public GameState CurrentState { get; private set; }
 
-      public void Initialize(GameSessionState startingState)
+      public void Initialize(GameState startingState)
       {
          CurrentState = startingState;
          startingState.Enter();
       }
 
-      public void ChangeState(GameSessionState newState)
+      public void ChangeState(GameState newState)
       {
          CurrentState.Exit();
          CurrentState = newState;

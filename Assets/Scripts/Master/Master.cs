@@ -28,7 +28,6 @@ namespace Raketa420
       public MasterBank Bank => bank;
       public MasterAnimation Animation => animation;
       public MasterMovement Movement => movement;
-      public MasterStatusView StatusView => statusView;
       public MasterInteraction Interaction => interaction;
       
       private void OnEnable()
@@ -41,17 +40,12 @@ namespace Raketa420
          input.OnClicked += UserInputOnClicked;
       }
 
-      private void Start()
-      {
-         Initialize();
-      }
-
       private void Update()
       {
          stateMachine.CurrentState.LogicUpdate();
       }
 
-      private void Initialize()
+      public void Initialize()
       {
          bank = GetComponent<MasterBank>();
          animation = GetComponent<MasterAnimation>();

@@ -5,7 +5,7 @@ namespace Raketa420
 {
     [RequireComponent(typeof(Rigidbody))]
 
-    public class PickUpItem : MonoBehaviour
+    public class LiftedItem : MonoBehaviour
     {
         private Rigidbody selfRigidbody;
         private Transform selfTransform;
@@ -16,7 +16,7 @@ namespace Raketa420
             selfTransform = transform;
         }
 
-        public void Carry(Transform parent, Transform hand)
+        public void Lift(Transform parent, Transform hand)
         {
             selfRigidbody.isKinematic = true;
             selfTransform.position = hand.position;

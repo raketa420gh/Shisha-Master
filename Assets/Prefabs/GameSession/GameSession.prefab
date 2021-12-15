@@ -48,6 +48,7 @@ MonoBehaviour:
   userInterface: {fileID: 0}
   input: {fileID: 0}
   spawner: {fileID: 0}
+  bench: {fileID: 0}
   data: {fileID: 11400000, guid: 93b0dd470238f2a42b1a34abff72b302, type: 2}
 --- !u!114 &373817149
 MonoBehaviour:
