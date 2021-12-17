@@ -28,7 +28,7 @@ namespace Raketa420
             var parent = FindObjectOfType<ParentForObjects>();
             selfTransform.SetParent(parent.transform);
             
-            selfRigidbody.AddForce(direction * powerAmount);
+            selfRigidbody.AddForce(direction * powerAmount, ForceMode.Impulse);
         }
     }
 }

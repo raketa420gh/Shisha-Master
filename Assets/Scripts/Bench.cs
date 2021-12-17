@@ -9,7 +9,7 @@ namespace Raketa420
       [SerializeField] private BenchUserInterface benchUI;
       [SerializeField] private Transform craftDoneTransform;
       [SerializeField] private GameObject hookahPrefab;
-      [SerializeField] private float craftingPeriod = 3f;
+      [SerializeField] private float craftingPeriod = 1f;
       private bool canCraft = false;
 
       public BenchUserInterface BenchUI => benchUI;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Raketa420
 {
@@ -19,16 +20,22 @@ namespace Raketa420
       public override void LogicUpdate()
       {
          base.LogicUpdate();
+         
+         if (!master.Input.IsEnabled)
+            return;
 
-         var joystickDirection = master.Input.Joystick.Direction;
-         var moveDirection = new Vector3(joystickDirection.x, 0, joystickDirection.y);
+         var moveDirection = 
+            new Vector3(master.Input.GetInputDirection().x, 0, master.Input.GetInputDirection().y);
          
          master.Movement.Move(moveDirection);
-         master.Rotation.LookAt(moveDirection);
          
          if (!master.Input.IsJoystickDragged())
          {
             stateMachine.ChangeState(master.inactionState);
+         }
+         else
+         {
+            master.Rotation.LookAt(moveDirection);
          }
       }
    }

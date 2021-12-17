@@ -6,24 +6,26 @@ namespace Raketa420
    
    public class MasterMovement : MonoBehaviour
    {
-      private CharacterController characterController;
-      private float speed = 3f;
+      [SerializeField] private float speed = 3f;
+      private float gravity = 9.81f;
+      private CharacterController controller;
       
-      public float Speed => speed;
+      private void Update()
+      {
+         if (!controller.isGrounded)
+         {
+            Move(Vector3.down * gravity);
+         }
+      }
 
       public void Initialize()
       {
-         characterController = GetComponent<CharacterController>();
+         controller = GetComponent<CharacterController>();
       }
 
       public void Move(Vector3 direction)
       {
-         characterController.Move(direction * speed * Time.deltaTime);
-      }
-
-      public Vector3 GetVelocity()
-      {
-         return characterController.velocity;
+         controller.Move(direction * speed * Time.deltaTime);
       }
    }
 }
