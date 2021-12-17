@@ -22,41 +22,17 @@ namespace Raketa420
       public UserInput Input => input;
       public Spawner Spawner => spawner;
       public GameplayData Data => data;
+      public Master Master => master;
+      public Bench Bench => bench;
 
       private void Start()
       {
          Initialize();
       }
 
-      private void OnEnable()
-      {
-         MasterInteraction.OnItemLifted += MasterOnItemLifted;
-         MasterInteraction.OnItemDropped += MasterOnItemDropped;
-         MasterInteraction.OnBenchZoneEntered += OnMasterEntered;
-         MasterInteraction.OnBenchZoneExited += OnMasterExited;
-      }
-
-      private void OnDisable()
-      {
-         MasterInteraction.OnItemLifted -= MasterOnItemLifted;
-         MasterInteraction.OnItemDropped -= MasterOnItemDropped;
-         MasterInteraction.OnBenchZoneEntered -= OnMasterEntered;
-         MasterInteraction.OnBenchZoneExited -= OnMasterExited;
-      }
-
       private void Update()
       {
          stateMachine.CurrentState.LogicUpdate();
-      }
-
-      public void DropItem()
-      {
-         master.Interaction.DropItem();
-      }
-
-      public void CraftHookah()
-      {
-         bench.CraftHookah();
       }
 
       private void Initialize()
@@ -73,7 +49,7 @@ namespace Raketa420
             master = FindObjectOfType<Master>();
 
          InitializeStateMachine();
-         
+
          ui.Initialize();
          bench.Initialize();
          master.Initialize();
@@ -86,28 +62,6 @@ namespace Raketa420
          pauseState = new PauseState(this, stateMachine);
 
          stateMachine.Initialize(gameplayState);
-      }
-      
-      private void MasterOnItemLifted()
-      {
-         ui.EnableInteractionItemButton(true);
-      }
-        
-      private void MasterOnItemDropped()
-      {
-         ui.EnableInteractionItemButton(false);
-      }
-      
-      private void OnMasterEntered()
-      {
-         bench.BenchUI.SetActiveCanvas(true);
-         ui.EnableCraftButton(true);
-      }
-
-      private void OnMasterExited()
-      {
-         bench.BenchUI.SetActiveCanvas(false);
-         ui.EnableCraftButton(false);
       }
    }
 }

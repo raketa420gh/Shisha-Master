@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Raketa420
@@ -23,11 +22,13 @@ namespace Raketa420
             selfTransform.SetParent(parent);
         }
 
-        public void Drop()
+        public void Drop(Vector3 direction, float powerAmount)
         {
             selfRigidbody.isKinematic = false;
             var parent = FindObjectOfType<ParentForObjects>();
             selfTransform.SetParent(parent.transform);
+            
+            selfRigidbody.AddForce(direction * powerAmount);
         }
     }
 }

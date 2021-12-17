@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Raketa420
 {
    public class InactionMasterState : MasterState
@@ -17,6 +19,13 @@ namespace Raketa420
       public override void LogicUpdate()
       {
          base.LogicUpdate();
+         
+         //master.transform.forward = master.Input.Joystick.;
+         
+         if (master.Input.IsJoystickDragged())
+         {
+            stateMachine.ChangeState(master.walkState);
+         }
       }
    }
 }

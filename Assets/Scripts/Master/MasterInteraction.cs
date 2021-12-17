@@ -6,6 +6,7 @@ namespace Raketa420
     public class MasterInteraction : MonoBehaviour
     {
         [SerializeField] private Transform hand;
+        private float dropPowerAmount = 1000f;
         private bool canLift = true;
         private LiftedItem currentItemInHand;
 
@@ -23,7 +24,7 @@ namespace Raketa420
         {
             if (currentItemInHand)
             {
-                currentItemInHand.Drop();
+                currentItemInHand.Drop(transform.forward, dropPowerAmount);
                 currentItemInHand = null;
                 Invoke(nameof(EnableCanLift), 3f);
             

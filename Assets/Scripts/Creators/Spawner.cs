@@ -10,8 +10,8 @@ namespace Raketa420
       [SerializeField] private GameObject[] clientPrefabs;
       [SerializeField] private Transform charactersSpawnParent;
 
-      public static event Action OnMasterCreated;
-      public static event Action OnClientCreated;
+      public event Action OnMasterCreated;
+      public event Action OnClientCreated;
 
       public void SpawnMaster(Vector3 position)
       {

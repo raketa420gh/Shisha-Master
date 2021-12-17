@@ -1,12 +1,11 @@
 using UnityEngine;
-using Pathfinding;
 
 namespace Raketa420
 {
    [RequireComponent(typeof(MasterBank))]
    [RequireComponent(typeof(MasterAnimation))]
    [RequireComponent(typeof(MasterMovement))]
-   [RequireComponent(typeof(Seeker))]
+   [RequireComponent(typeof(MasterRotation))]
    [RequireComponent(typeof(MasterStatusView))]
    [RequireComponent(typeof(MasterInteraction))]
    [RequireComponent(typeof(MasterStateMachine))]
@@ -14,10 +13,10 @@ namespace Raketa420
    public class Master : MonoBehaviour
    {
       [SerializeField] private UserInput input;
-      
       private MasterBank bank;
       private MasterAnimation animation;
       private MasterMovement movement;
+      private MasterRotation rotation;
       private MasterStatusView statusView;
       private MasterInteraction interaction;
       
@@ -25,20 +24,12 @@ namespace Raketa420
       public InactionMasterState inactionState;
       public WalkMasterState walkState;
 
+      public UserInput Input => input;
       public MasterBank Bank => bank;
       public MasterAnimation Animation => animation;
       public MasterMovement Movement => movement;
+      public MasterRotation Rotation => rotation;
       public MasterInteraction Interaction => interaction;
-      
-      private void OnEnable()
-      {
-         input.OnClicked += UserInputOnClicked;
-      }
-
-      private void OnDisable()
-      {
-         input.OnClicked += UserInputOnClicked;
-      }
 
       private void Update()
       {
@@ -50,6 +41,7 @@ namespace Raketa420
          bank = GetComponent<MasterBank>();
          animation = GetComponent<MasterAnimation>();
          movement = GetComponent<MasterMovement>();
+         rotation = GetComponent<MasterRotation>();
          statusView = GetComponent<MasterStatusView>();
          interaction = GetComponent<MasterInteraction>();
 
@@ -70,12 +62,6 @@ namespace Raketa420
          walkState = new WalkMasterState(this, stateMachine);
 
          stateMachine.Initialize(inactionState);
-      }
-      
-      private void UserInputOnClicked(Vector3 point)
-      {
-         movement.MoveTo(point);
-         stateMachine.ChangeState(walkState);
       }
    }
 }

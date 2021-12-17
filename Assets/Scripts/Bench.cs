@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Raketa420
@@ -10,6 +9,8 @@ namespace Raketa420
       [SerializeField] private BenchUserInterface benchUI;
       [SerializeField] private Transform craftDoneTransform;
       [SerializeField] private GameObject hookahPrefab;
+      [SerializeField] private float craftingPeriod = 3f;
+      private bool canCraft = false;
 
       public BenchUserInterface BenchUI => benchUI;
 
@@ -18,6 +19,7 @@ namespace Raketa420
          benchUI = GetComponent<BenchUserInterface>();
          
          benchUI.SetActiveCanvas(false);
+         canCraft = true;
       }
 
       public void CraftHookah()
@@ -27,7 +29,21 @@ namespace Raketa420
       
       private void Craft(GameObject item)
       {
-         Instantiate(item, craftDoneTransform.position, Quaternion.identity);
+         if (canCraft)
+         {
+            Instantiate(item, craftDoneTransform.position, Quaternion.identity);
+            canCraft = false;
+            Invoke(nameof(SetCanCraftTrue), craftingPeriod);
+         }
+         else
+         {
+            Debug.LogError("You can not craft.");
+         }
+      }
+
+      private void SetCanCraftTrue()
+      {
+         canCraft = true;
       }
    }
 }

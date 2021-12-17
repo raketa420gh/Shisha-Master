@@ -1,27 +1,29 @@
 using UnityEngine;
-using Pathfinding;
 
 namespace Raketa420
 {
-   [RequireComponent(typeof(Seeker))]
-   [RequireComponent(typeof(AIPath))]
-
+   [RequireComponent(typeof(CharacterController))]
+   
    public class MasterMovement : MonoBehaviour
    {
-      private Seeker seeker;
-      private AIPath aiPath;
-
-      public AIPath AiPath => aiPath;
+      private CharacterController characterController;
+      private float speed = 3f;
+      
+      public float Speed => speed;
 
       public void Initialize()
       {
-         seeker = GetComponent<Seeker>();
-         aiPath = GetComponent<AIPath>();
+         characterController = GetComponent<CharacterController>();
       }
 
-      public void MoveTo(Vector3 point)
+      public void Move(Vector3 direction)
       {
-         aiPath.destination = point;
+         characterController.Move(direction * speed * Time.deltaTime);
+      }
+
+      public Vector3 GetVelocity()
+      {
+         return characterController.velocity;
       }
    }
 }

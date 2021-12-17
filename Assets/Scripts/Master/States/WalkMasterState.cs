@@ -20,7 +20,13 @@ namespace Raketa420
       {
          base.LogicUpdate();
 
-         if (master.Movement.AiPath.reachedDestination)
+         var joystickDirection = master.Input.Joystick.Direction;
+         var moveDirection = new Vector3(joystickDirection.x, 0, joystickDirection.y);
+         
+         master.Movement.Move(moveDirection);
+         master.Rotation.LookAt(moveDirection);
+         
+         if (!master.Input.IsJoystickDragged())
          {
             stateMachine.ChangeState(master.inactionState);
          }
