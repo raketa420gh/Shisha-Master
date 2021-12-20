@@ -13,6 +13,8 @@ namespace Raketa420
             MasterInteraction.OnBenchZoneEntered += OnMasterEntered;
             MasterInteraction.OnBenchZoneExited += OnMasterExited;
             TableTrigger.OnHookahTriggered += TableOnHookahTriggered;
+            Client.OnTableTaked += OnClientTableTaked;
+            ClientBank.OnTableReleased += OnTableReleased;
         }
 
         private void OnDisable()
@@ -21,6 +23,8 @@ namespace Raketa420
             MasterInteraction.OnItemDropped -= MasterOnItemDropped;
             MasterInteraction.OnBenchZoneEntered -= OnMasterEntered;
             MasterInteraction.OnBenchZoneExited -= OnMasterExited;
+            Client.OnTableTaked -= OnClientTableTaked;
+            ClientBank.OnTableReleased -= OnTableReleased;
         }
 
         public void DropItem()
@@ -58,6 +62,16 @@ namespace Raketa420
         private void TableOnHookahTriggered(ServicePlace servicePlace, Hookah hookah)
         {
             game.ServicePlaceManager.SetHookahAtServicePlace(servicePlace, hookah);
+        }
+        
+        private void OnClientTableTaked(Client client, ServicePlace servicePlace)
+        {
+            game.ServicePlaceManager.SetServicePlaceNotFree(client, servicePlace);
+        }
+
+        private void OnTableReleased(ServicePlace servicePlace)
+        {
+            game.ServicePlaceManager.SetServicePlaceFree(servicePlace);
         }
     }
 }
