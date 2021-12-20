@@ -1,18 +1,19 @@
 using UnityEngine;
-using System;
 
 namespace Raketa420
 {
-   [RequireComponent(typeof(TableStatusView))]
+   [RequireComponent(typeof(ServicePlaceStatusView))]
 
-   public class Table : MonoBehaviour
+   public class ServicePlace : MonoBehaviour
    {
       private bool isFree = true;
+      private bool haveHookah = false;
+      private TableTrigger tableTrigger;
       private ServicePoint servicePoint;
-      private TableStatusView statusView;
-
-      public ServicePoint ServicePoint => servicePoint;
+      private ServicePlaceStatusView statusView;
+      
       public bool IsFree => isFree;
+      public TableTrigger TableTrigger => tableTrigger; 
 
       private void OnEnable()
       {
@@ -49,18 +50,19 @@ namespace Raketa420
 
       private void InitialiazeSelfComponents()
       {
-         statusView = GetComponent<TableStatusView>();
+         statusView = GetComponent<ServicePlaceStatusView>();
          servicePoint = GetComponentInChildren<ServicePoint>();
+         tableTrigger = (TableTrigger) GetComponentInChildren(typeof(TableTrigger));
       }
 
-      private void OnClientTableTaked(Client client, Table table)
+      private void OnClientTableTaked(Client client, ServicePlace servicePlace)
       {
-         table.SetFree(false);
+         servicePlace.SetFree(false);
       }
 
-      private void OnTableReleased(Table table)
+      private void OnTableReleased(ServicePlace servicePlace)
       {
-         table.SetFree(true);
+         servicePlace.SetFree(true);
       }
    }
 }

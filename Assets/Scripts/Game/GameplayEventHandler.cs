@@ -12,6 +12,7 @@ namespace Raketa420
             MasterInteraction.OnItemDropped += MasterOnItemDropped;
             MasterInteraction.OnBenchZoneEntered += OnMasterEntered;
             MasterInteraction.OnBenchZoneExited += OnMasterExited;
+            TableTrigger.OnHookahTriggered += TableOnHookahTriggered;
         }
 
         private void OnDisable()
@@ -52,6 +53,11 @@ namespace Raketa420
         {
             game.Bench.BenchUI.SetActiveCanvas(false);
             game.UI.EnableCraftButton(false);
+        }
+
+        private void TableOnHookahTriggered(ServicePlace servicePlace, Hookah hookah)
+        {
+            game.ServicePlaceManager.SetHookahAtServicePlace(servicePlace, hookah);
         }
     }
 }

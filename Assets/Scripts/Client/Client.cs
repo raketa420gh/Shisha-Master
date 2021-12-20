@@ -26,7 +26,7 @@ namespace Raketa420
       private ClientStatusView statusView;
       private ClientAI ai;
 
-      public static event Action<Client, Table> OnTableTaked;
+      public static event Action<Client, ServicePlace> OnTableTaked;
 
       public ClientBank Bank => bank;
       public ClientAnimation Animation => animation;
@@ -44,11 +44,11 @@ namespace Raketa420
          stateMachine.CurrentState.LogicUpdate();
       }
 
-      public void TakeTable(Client client, Table table)
+      public void TakeTable(Client client, ServicePlace servicePlace)
       {
-         bank.SetCurrentUsingTable(table);
+         bank.SetCurrentUsingTable(servicePlace);
 
-         OnTableTaked?.Invoke(this, table);
+         OnTableTaked?.Invoke(this, servicePlace);
       }
 
       public void DestroySelf()

@@ -11,13 +11,13 @@ namespace Raketa420
       [SerializeField] private StatusData makingAnOrderStatusData;
       [SerializeField] private StatusData exitFromBarStatusData;
       private StatusData currentStatus;
-      private Table currentUsingTable;
+      private ServicePlace _currentUsingServicePlace;
 
       public event Action<StatusData> OnStatusChanged;
-      public static event Action<Table> OnTableReleased;
+      public static event Action<ServicePlace> OnTableReleased;
 
       public StatusData CurrentStatus => currentStatus;
-      public Table CurrentUsingTable => currentUsingTable;
+      public ServicePlace CurrentUsingServicePlace => _currentUsingServicePlace;
 
       public void SetInactionStatus()
       {
@@ -44,19 +44,19 @@ namespace Raketa420
          SetStatus(exitFromBarStatusData);
       }
 
-      public void SetCurrentUsingTable(Table table)
+      public void SetCurrentUsingTable(ServicePlace servicePlace)
       {
-         currentUsingTable = table;
+         _currentUsingServicePlace = servicePlace;
       }
 
       public void ReleaseCurrentUsingTable()
       {
-         if (currentUsingTable != null)
+         if (_currentUsingServicePlace != null)
          {
-            OnTableReleased?.Invoke(currentUsingTable);
+            OnTableReleased?.Invoke(_currentUsingServicePlace);
          }
 
-         currentUsingTable = null;
+         _currentUsingServicePlace = null;
       }
 
       private void SetStatus(StatusData status)

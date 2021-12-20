@@ -3,7 +3,7 @@ using TMPro;
 
 namespace Raketa420
 {
-   public class TableStatusView : MonoBehaviour
+   public class ServicePlaceStatusView : MonoBehaviour
    {
       private TextMeshProUGUI statusTMP;
       [SerializeField] private StatusCanvas statusCanvas;

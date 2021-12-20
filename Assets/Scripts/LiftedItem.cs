@@ -22,13 +22,18 @@ namespace Raketa420
             selfTransform.SetParent(parent);
         }
 
-        public void Drop(Vector3 direction, float powerAmount)
+        public void Drop(Vector3 direction, float powerAmount = 0)
         {
             selfRigidbody.isKinematic = false;
             var parent = FindObjectOfType<ParentForObjects>();
             selfTransform.SetParent(parent.transform);
             
             selfRigidbody.AddForce(direction * powerAmount, ForceMode.Impulse);
+        }
+
+        public void SetKinematic(bool isActive)
+        {
+            selfRigidbody.isKinematic = isActive;
         }
     }
 }

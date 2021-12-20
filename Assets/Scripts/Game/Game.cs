@@ -14,6 +14,7 @@ namespace Raketa420
       [SerializeField] private Spawner spawner;
       [SerializeField] private Bench bench;
       [SerializeField] private Master master;
+      [SerializeField] private ServicePlaceManager servicePlaceManager;
 
       [Header("Session Settings")]
       [SerializeField] private GameplayData data;
@@ -24,6 +25,7 @@ namespace Raketa420
       public GameplayData Data => data;
       public Master Master => master;
       public Bench Bench => bench;
+      public ServicePlaceManager ServicePlaceManager => servicePlaceManager;
 
       private void Start()
       {
@@ -47,12 +49,15 @@ namespace Raketa420
             bench = FindObjectOfType<Bench>();
          if (!master)
             master = FindObjectOfType<Master>();
+         if (!servicePlaceManager)
+            servicePlaceManager = FindObjectOfType<ServicePlaceManager>();
 
          InitializeStateMachine();
 
          ui.Initialize();
          bench.Initialize();
          master.Initialize();
+         servicePlaceManager.Initialize();
       }
 
       private void InitializeStateMachine()

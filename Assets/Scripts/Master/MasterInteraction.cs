@@ -6,7 +6,7 @@ namespace Raketa420
     public class MasterInteraction : MonoBehaviour
     {
         [SerializeField] private Transform hand;
-        private float dropPowerAmount = 10f;
+        private float dropPowerAmount = 15f;
         private float interactDelay = 1f;
         private bool canLift = true;
         private LiftedItem currentItemInHand;

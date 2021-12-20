@@ -5,7 +5,7 @@ namespace Raketa420
 {
    public class ClientAI : MonoBehaviour
    {
-      public Table GetNearbyTable()
+      public ServicePlace GetNearbyTable()
       {
          return GetClosestTable(GetFreeTables());
       }
@@ -25,9 +25,9 @@ namespace Raketa420
          return exitFromBarPosition;
       }
 
-      public ServicePoint GetServicePoint(Table table)
+      public ServicePoint GetServicePoint(ServicePlace servicePlace)
       {
-         var servicePoint = table.GetComponentInChildren<ServicePoint>();
+         var servicePoint = servicePlace.GetComponentInChildren<ServicePoint>();
 
          if (servicePoint != null)
          {
@@ -40,23 +40,23 @@ namespace Raketa420
          }
       }
 
-      private Table GetClosestTable(Table[] tables)
+      private ServicePlace GetClosestTable(ServicePlace[] tables)
       {
-         Table tableNearby = null;
+         ServicePlace servicePlaceNearby = null;
          var minDistance = Mathf.Infinity;
          var currentPosition = transform.position;
 
-         foreach (Table table in tables)
+         foreach (ServicePlace table in tables)
          {
             float distance = Vector3.Distance(table.transform.position, currentPosition);
             if (distance < minDistance)
             {
-               tableNearby = table;
+               servicePlaceNearby = table;
                minDistance = distance;
             }
          }
 
-         return tableNearby;
+         return servicePlaceNearby;
       }
 
       private Vector3[] GetFreeServicePointsPositions()
@@ -76,9 +76,9 @@ namespace Raketa420
          return freeServicePointsPositionsList.ToArray();
       }
 
-      private Table[] GetFreeTables()
+      private ServicePlace[] GetFreeTables()
       {
-         var freeTablesList = new List<Table>();
+         var freeTablesList = new List<ServicePlace>();
          var allTables = FindAllGuestTables();
 
          foreach (var table in allTables)
@@ -92,10 +92,10 @@ namespace Raketa420
          return freeTablesList.ToArray();
       }
 
-      private Table[] FindAllGuestTables()
+      private ServicePlace[] FindAllGuestTables()
       {
-         var tables = FindObjectsOfType<Table>();
-         var allTablesList = new List<Table>();
+         var tables = FindObjectsOfType<ServicePlace>();
+         var allTablesList = new List<ServicePlace>();
 
          foreach (var table in tables)
          {
