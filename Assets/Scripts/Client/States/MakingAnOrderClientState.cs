@@ -17,7 +17,7 @@ namespace Raketa420
 
          timer = 0f;
 
-         client.Bank.SetMakingAnOrderStatus();
+         client.Data.SetMakingAnOrderStatus();
          client.Animation.SetIdleAnimation();
       }
 
@@ -33,6 +33,11 @@ namespace Raketa420
          if (timer > waitingTime)
          {
             client.stateMachine.ChangeState(client.exitFromBarClientState);
+         }
+         
+         if (client.Data.CurrentUsingServicePlace.HaveHookah)
+         {
+            client.stateMachine.ChangeState(client.smokingPerformanceClientState);
          }
       }
    }

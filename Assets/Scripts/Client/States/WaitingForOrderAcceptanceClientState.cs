@@ -20,7 +20,7 @@ namespace Raketa420
          master = client.AI.GetMaster();
 
          timer = 0f;
-         client.Bank.SetWaitingForOrderAcceptanceStatus();
+         client.Data.SetWaitingForOrderAcceptanceStatus();
          client.Animation.SetIdleAnimation();
       }
 

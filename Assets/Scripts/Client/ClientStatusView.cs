@@ -8,21 +8,21 @@ namespace Raketa420
    {
       [SerializeField] private StatusCanvas statusCanvas;
       [SerializeField] private TextMeshProUGUI statusTMP;
-      private ClientBank bank;
+      private ClientData _data;
 
       private void Awake()
       {
-         bank = GetComponent<ClientBank>();
+         _data = GetComponent<ClientData>();
       }
 
       private void OnEnable()
       {
-         bank.OnStatusChanged += OnClientStatusChanged;
+         _data.OnStatusChanged += OnClientStatusChanged;
       }
 
       private void OnDisable()
       {
-         bank.OnStatusChanged -= OnClientStatusChanged;
+         _data.OnStatusChanged -= OnClientStatusChanged;
       }
 
       public void Initialize()

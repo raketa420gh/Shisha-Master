@@ -16,7 +16,7 @@ namespace Raketa420
          base.Enter();
 
          timer = 0f;
-         client.Bank.SetFindingPlaceStatus();
+         client.Data.SetFindingPlaceStatus();
          client.Animation.SetWalkingAnimation();
 
          var nearbyTable = client.AI.GetNearbyTable();

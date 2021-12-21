@@ -10,18 +10,22 @@ namespace Raketa420
       private bool haveHookah = false;
       private TableTrigger tableTrigger;
       private ServicePoint servicePoint;
+      private SitPlace[] sitPlaces;
       private ServicePlaceStatusView statusView;
       
       public bool IsFree => isFree;
-      public TableTrigger TableTrigger => tableTrigger;
+      public bool HaveHookah => haveHookah;
+      public SitPlace[] SitPlaces => sitPlaces;
       
       public void Initialize()
       {
          statusView = GetComponent<ServicePlaceStatusView>();
          servicePoint = GetComponentInChildren<ServicePoint>();
+         sitPlaces = GetComponentsInChildren<SitPlace>();
          tableTrigger = (TableTrigger) GetComponentInChildren(typeof(TableTrigger));
          
          SetFree(true);
+         SetHaveHookah(false);
       }
 
       public Vector3 GetServicePointPosition()
@@ -33,6 +37,11 @@ namespace Raketa420
       {
          this.isFree = isFree;
          statusView.UdpateView(isFree);
+      }
+
+      public void SetHaveHookah(bool have)
+      {
+         haveHookah = have;
       }
    }
 }

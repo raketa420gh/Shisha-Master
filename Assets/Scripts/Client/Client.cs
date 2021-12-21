@@ -1,9 +1,10 @@
 using UnityEngine;
 using System;
+using Random = UnityEngine.Random;
 
 namespace Raketa420
 {
-   [RequireComponent(typeof(ClientBank))]
+   [RequireComponent(typeof(ClientData))]
    [RequireComponent(typeof(ClientAnimation))]
    [RequireComponent(typeof(ClientMovement))]
    [RequireComponent(typeof(ClientStatusView))]
@@ -18,9 +19,10 @@ namespace Raketa420
       public WaitingForOrderAcceptanceClientState waitingForOrderAcceptanceClientState;
       public MakingAnOrderClientState makingAnOrderClientState;
       public WaitSecondTimeClientState waitSecondTimeState;
+      public SmokingPerformanceClientState smokingPerformanceClientState;
       public ExitFromBarClientState exitFromBarClientState;
 
-      private ClientBank bank;
+      private ClientData data;
       private ClientAnimation animation;
       private ClientMovement movement;
       private ClientStatusView statusView;
@@ -28,7 +30,7 @@ namespace Raketa420
 
       public static event Action<Client, ServicePlace> OnTableTaked;
 
-      public ClientBank Bank => bank;
+      public ClientData Data => data;
       public ClientAnimation Animation => animation;
       public ClientMovement Movement => movement;
       public ClientStatusView StatusView => statusView;
@@ -46,9 +48,23 @@ namespace Raketa420
 
       public void TakeTable(Client client, ServicePlace servicePlace)
       {
-         bank.SetCurrentUsingTable(servicePlace);
+         data.SetCurrentUsingTable(servicePlace);
 
          OnTableTaked?.Invoke(this, servicePlace);
+      }
+
+      public SitPlace GetSitPlace()
+      {
+         if (data.CurrentSitPlace != null)
+         {
+            var sitPlaces = data.CurrentUsingServicePlace.SitPlaces;
+            var randomSitPlacesIndex = Random.Range(0, data.CurrentUsingServicePlace.SitPlaces.Length);
+            
+            return sitPlaces[randomSitPlacesIndex];
+         }
+
+         Debug.LogError($"Sit Places Not Found");
+         return null;
       }
 
       public void DestroySelf()
@@ -58,7 +74,7 @@ namespace Raketa420
 
       private void Initialize()
       {
-         bank = GetComponent<ClientBank>();
+         data = GetComponent<ClientData>();
          animation = GetComponent<ClientAnimation>();
          movement = GetComponent<ClientMovement>();
          statusView = GetComponent<ClientStatusView>();
@@ -78,6 +94,7 @@ namespace Raketa420
          waitingForOrderAcceptanceClientState = new WaitingForOrderAcceptanceClientState(this, stateMachine);
          makingAnOrderClientState = new MakingAnOrderClientState(this, stateMachine);
          waitSecondTimeState = new WaitSecondTimeClientState(this, stateMachine);
+         smokingPerformanceClientState = new SmokingPerformanceClientState(this, stateMachine);
          exitFromBarClientState = new ExitFromBarClientState(this, stateMachine);
 
          stateMachine.Initialize(inactionState);

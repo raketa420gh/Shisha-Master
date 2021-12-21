@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 2049523381418615998}
   - component: {fileID: 7882528359283143314}
   m_Layer: 6
-  m_Name: ClientManLongsleeve1
+  m_Name: Client
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,6 +147,8 @@ MonoBehaviour:
   waitingForOrderAcceptanceStatusData: {fileID: 11400000, guid: bda65daf7834fa341a43d162d2a57273,
     type: 2}
   makingAnOrderStatusData: {fileID: 11400000, guid: 97e51b163f50af447989eaf652e6e775,
+    type: 2}
+  smokingPerformanceStatusData: {fileID: 11400000, guid: 2e7a627ccad22ee458bdcb0c5ee7e294,
     type: 2}
   exitFromBarStatusData: {fileID: 11400000, guid: 8e0b38cbeb3374e459faad51f0df3a1d,
     type: 2}

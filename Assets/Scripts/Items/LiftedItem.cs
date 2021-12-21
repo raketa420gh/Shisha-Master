@@ -8,11 +8,13 @@ namespace Raketa420
     {
         private Rigidbody selfRigidbody;
         private Transform selfTransform;
+        private Transform parent;
 
         private void Awake()
         {
             selfRigidbody = GetComponent<Rigidbody>();
             selfTransform = transform;
+            parent = FindObjectOfType<ParentForObjects>().transform;
         }
 
         public void Lift(Transform parent, Transform hand)
@@ -25,9 +27,7 @@ namespace Raketa420
         public void Drop(Vector3 direction, float powerAmount = 0)
         {
             selfRigidbody.isKinematic = false;
-            var parent = FindObjectOfType<ParentForObjects>();
-            selfTransform.SetParent(parent.transform);
-            
+            selfTransform.SetParent(parent);
             selfRigidbody.AddForce(direction * powerAmount, ForceMode.Impulse);
         }
 

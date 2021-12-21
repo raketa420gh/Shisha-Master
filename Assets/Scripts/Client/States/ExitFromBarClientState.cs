@@ -15,9 +15,9 @@ namespace Raketa420
       {
          base.Enter();
 
-         client.Bank.SetExitFromBarStatus();
+         client.Data.SetExitFromBarStatus();
          client.Animation.SetWalkingAnimation();
-         client.Bank.ReleaseCurrentUsingTable();
+         client.Data.ReleaseCurrentUsingTable();
 
          exitFromBarPosition = client.AI.GetExitFromBar().position;
          client.Movement.MoveTo(exitFromBarPosition);

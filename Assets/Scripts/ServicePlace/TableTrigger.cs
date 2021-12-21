@@ -6,8 +6,9 @@ namespace Raketa420
     public class TableTrigger : MonoBehaviour
     {
         [SerializeField] private ServicePlace servicePlace;
+        private Vector3 triggerPoint;
         
-        public static event Action<ServicePlace, Hookah> OnHookahTriggered;
+        public static event Action<ServicePlace, Hookah, Vector3> OnHookahTriggered;
         
         private void OnTriggerEnter(Collider other)
         {
@@ -16,7 +17,9 @@ namespace Raketa420
             if (!hookah)
                 return;
 
-            OnHookahTriggered?.Invoke(servicePlace, hookah);
+            triggerPoint = other.ClosestPoint(hookah.transform.position);
+
+            OnHookahTriggered?.Invoke(servicePlace, hookah, triggerPoint);
         }
     }
 }

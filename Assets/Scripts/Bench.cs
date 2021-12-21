@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Raketa420
@@ -11,6 +12,8 @@ namespace Raketa420
       [SerializeField] private GameObject hookahPrefab;
       [SerializeField] private float craftingPeriod = 1f;
       private bool canCraft = false;
+
+      public static event Action OnCrafted;
 
       public BenchUserInterface BenchUI => benchUI;
 
@@ -34,6 +37,8 @@ namespace Raketa420
             Instantiate(item, craftDoneTransform.position, Quaternion.identity);
             canCraft = false;
             Invoke(nameof(SetCanCraftTrue), craftingPeriod);
+            
+            OnCrafted?.Invoke();
          }
          else
          {

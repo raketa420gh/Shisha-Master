@@ -16,5 +16,10 @@ namespace Raketa420
       {
          animator.SetBool(AnimationParameterNames.IsWalking, false);
       }
+
+      public void SetSittingAnimation()
+      {
+         animator.SetBool(AnimationParameterNames.IsSitting, true);
+      }
    }
 }

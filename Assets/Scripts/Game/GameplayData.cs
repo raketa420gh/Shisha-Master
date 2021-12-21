@@ -7,10 +7,9 @@ namespace Raketa420
    public class GameplayData : ScriptableObject
    {
       [Header("Spawn positions")]
-      public Vector3 MasterStartPosition;
       public Vector3 ClientStartPosition;
       
-      [Header("Start Game Values")]
-      public int MaxHappinessPoints;
+      [Header("Points")]
+      public int MaxServicePoints;
    }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Raketa420
 {
-    public class ServicePlaceManager : MonoBehaviour
+    public class ServicePlacesManager : MonoBehaviour
     {
         private ServicePlace[] allServicePlaces;
         
@@ -20,11 +20,12 @@ namespace Raketa420
             Debug.Log($"All service places amount = {allServicePlacesAmount}");
         }
 
-        public void SetHookahAtServicePlace(ServicePlace servicePlace, Hookah hookah)
+        public void SetHookahAtServicePlace(ServicePlace servicePlace, Hookah hookah, Vector3 triggerPoint)
         {
-            hookah.transform.position = servicePlace.TableTrigger.transform.position;
-            hookah.SetKinematic(true);
+            hookah.transform.position = triggerPoint;
             hookah.Drop(Vector3.zero);
+            hookah.SetKinematic(true);
+            servicePlace.SetHaveHookah(true);
         }
 
         public void SetServicePlaceFree(ServicePlace servicePlace)

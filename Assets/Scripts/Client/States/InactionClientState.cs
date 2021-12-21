@@ -3,20 +3,20 @@ using UnityEngine;
 namespace Raketa420
 {
    public class InactionClientState : ClientState
-   {
-      private float timer = 0f;
-      private float waitingTime = 1f;
-
+   {      
       public InactionClientState(Client client, ClientStateMachine stateMachine) : base(client, stateMachine)
       {
       }
+      
+      private float timer = 0f;
+      private float waitingTime = 1f;
 
       public override void Enter()
       {
          base.Enter();
 
          timer = 0f;
-         client.Bank.SetInactionStatus();
+         client.Data.SetInactionStatus();
          client.Animation.SetIdleAnimation();
       }
 

@@ -13,8 +13,8 @@ namespace Raketa420
             MasterInteraction.OnBenchZoneEntered += OnMasterEntered;
             MasterInteraction.OnBenchZoneExited += OnMasterExited;
             TableTrigger.OnHookahTriggered += TableOnHookahTriggered;
-            Client.OnTableTaked += OnClientTableTaked;
-            ClientBank.OnTableReleased += OnTableReleased;
+            Client.OnTableTaked += OnClientTableToke;
+            ClientData.OnTableReleased += OnTableReleased;
         }
 
         private void OnDisable()
@@ -23,8 +23,8 @@ namespace Raketa420
             MasterInteraction.OnItemDropped -= MasterOnItemDropped;
             MasterInteraction.OnBenchZoneEntered -= OnMasterEntered;
             MasterInteraction.OnBenchZoneExited -= OnMasterExited;
-            Client.OnTableTaked -= OnClientTableTaked;
-            ClientBank.OnTableReleased -= OnTableReleased;
+            Client.OnTableTaked -= OnClientTableToke;
+            ClientData.OnTableReleased -= OnTableReleased;
         }
 
         public void DropItem()
@@ -59,19 +59,19 @@ namespace Raketa420
             game.UI.EnableCraftButton(false);
         }
 
-        private void TableOnHookahTriggered(ServicePlace servicePlace, Hookah hookah)
+        private void TableOnHookahTriggered(ServicePlace servicePlace, Hookah hookah, Vector3 triggerPoint)
         {
-            game.ServicePlaceManager.SetHookahAtServicePlace(servicePlace, hookah);
+            game.ServicePlacesManager.SetHookahAtServicePlace(servicePlace, hookah, triggerPoint);
         }
         
-        private void OnClientTableTaked(Client client, ServicePlace servicePlace)
+        private void OnClientTableToke(Client client, ServicePlace servicePlace)
         {
-            game.ServicePlaceManager.SetServicePlaceNotFree(client, servicePlace);
+            game.ServicePlacesManager.SetServicePlaceNotFree(client, servicePlace);
         }
 
         private void OnTableReleased(ServicePlace servicePlace)
         {
-            game.ServicePlaceManager.SetServicePlaceFree(servicePlace);
+            game.ServicePlacesManager.SetServicePlaceFree(servicePlace);
         }
     }
 }
