@@ -21,6 +21,8 @@ namespace Raketa420
         {
             selfRigidbody.isKinematic = true;
             selfTransform.position = hand.position;
+            var rotationVector = Quaternion.Euler(Vector3.forward);
+            selfTransform.rotation = rotationVector;
             selfTransform.SetParent(parent);
         }
 
