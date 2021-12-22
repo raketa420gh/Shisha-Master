@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace Raketa420
 {
-   public class MakingAnOrderClientState : ClientState
+   public class WaitingOrderClientState : ClientState
    {
-      private float timer = 0f;
+      private float timer;
       private float waitingTime = 30f;
 
-      public MakingAnOrderClientState(Client client, ClientStateMachine stateMachine) : base(client, stateMachine)
+      public WaitingOrderClientState(Client client, ClientStateMachine stateMachine) : base(client, stateMachine)
       {
       }
 
@@ -17,8 +17,7 @@ namespace Raketa420
 
          timer = 0f;
 
-         client.Data.SetMakingAnOrderStatus();
-         client.Animation.SetIdleAnimation();
+         client.Data.SetWaitingOrderStatus();
       }
 
       public override void LogicUpdate()

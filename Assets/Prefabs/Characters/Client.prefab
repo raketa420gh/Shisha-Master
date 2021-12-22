@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 7066720398108043944}
   - component: {fileID: 2049523381418615998}
   - component: {fileID: 7882528359283143314}
+  - component: {fileID: 7733213877671447664}
   m_Layer: 6
   m_Name: Client
   m_TagString: Untagged
@@ -152,6 +153,7 @@ MonoBehaviour:
     type: 2}
   exitFromBarStatusData: {fileID: 11400000, guid: 8e0b38cbeb3374e459faad51f0df3a1d,
     type: 2}
+  currentSitPlace: {fileID: 0}
 --- !u!114 &2423844995108964603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +275,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusCanvas: {fileID: 3190856360743844930}
   statusTMP: {fileID: 2307911222253184852}
+--- !u!114 &7733213877671447664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3737008461104907387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57dbe37820387148a88f976a15cab52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodyTransform: {fileID: 3737008461104907332}
 --- !u!1 &6550346981387263195
 GameObject:
   m_ObjectHideFlags: 0

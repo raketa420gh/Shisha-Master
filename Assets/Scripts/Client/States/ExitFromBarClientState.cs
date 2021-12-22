@@ -14,10 +14,10 @@ namespace Raketa420
       public override void Enter()
       {
          base.Enter();
-
          client.Data.SetExitFromBarStatus();
          client.Animation.SetWalkingAnimation();
          client.Data.ReleaseCurrentUsingTable();
+         client.Movement.AiPath.enabled = true;
 
          exitFromBarPosition = client.AI.GetExitFromBar().position;
          client.Movement.MoveTo(exitFromBarPosition);

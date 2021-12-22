@@ -40,7 +40,7 @@ namespace Raketa420
 
          if (Vector3.Distance(client.transform.position, client.Movement.AiPath.destination) < interactDistance)
          {
-            client.stateMachine.ChangeState(client.waitingForOrderAcceptanceClientState);
+            client.stateMachine.ChangeState(client.waitingOrderAcceptanceClientState);
          }
       }
 

@@ -18,8 +18,8 @@ namespace Raketa420
          game.UI.EnableInteractionItemButton(false);
          game.UI.EnableCraftButton(false);
 
-         var randomPeriod = Random.Range(5f, 20f);
-         game.Spawner.StartSpawningClients(game.Data.ClientStartPosition, 10, randomPeriod);
+         var randomPeriod = Random.Range(2f, 20f);
+         game.Spawner.StartSpawningClients(game.Data.ClientStartPosition, 50, randomPeriod);
       }
 
       public override void Exit()

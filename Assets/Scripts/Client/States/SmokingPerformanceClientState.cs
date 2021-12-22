@@ -1,9 +1,12 @@
-﻿using System.Runtime.InteropServices;
+﻿using UnityEngine;
 
 namespace Raketa420
 {
     public class SmokingPerformanceClientState : ClientState
     {
+        private float timer;
+        private float processTime = 120f;
+        
         public SmokingPerformanceClientState(Client client, ClientStateMachine stateMachine) : base(client, stateMachine)
         {
         }
@@ -11,21 +14,24 @@ namespace Raketa420
         public override void Enter()
         {
             base.Enter();
+
+            timer = 0f;
             client.Data.SetSmokingPerformanceStatus();
-            Sit();
         }
 
-        public override void Exit()
+        public override void LogicUpdate()
         {
-            base.Exit();
-        }
+            base.LogicUpdate();
+            
+            timer += Time.deltaTime;
 
-        private void Sit()
-        {
-            client.Movement.enabled = false;
-            client.Animation.SetSittingAnimation();
-            client.Data.SetCurrentSitPlace(client.GetSitPlace());
-            client.gameObject.transform.position = client.Data.CurrentSitPlace.transform.position;
+            var timerNormalized = timer / processTime;
+            client.StatusView.SetStatusFillerValue(timerNormalized);
+
+            if (timer > processTime)
+            {
+                client.stateMachine.ChangeState(client.exitFromBarClientState);
+            }
         }
     }
 }

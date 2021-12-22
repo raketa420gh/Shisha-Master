@@ -31,12 +31,12 @@ namespace Raketa420
          SetStatus(findPlaceStatusData);
       }
 
-      public void SetWaitingForOrderAcceptanceStatus()
+      public void SetWaitingOrderAcceptanceStatus()
       {
          SetStatus(waitingForOrderAcceptanceStatusData);
       }
 
-      public void SetMakingAnOrderStatus()
+      public void SetWaitingOrderStatus()
       {
          SetStatus(makingAnOrderStatusData);
       }

@@ -7,6 +7,7 @@ namespace Raketa420
    [RequireComponent(typeof(ClientData))]
    [RequireComponent(typeof(ClientAnimation))]
    [RequireComponent(typeof(ClientMovement))]
+   [RequireComponent(typeof(ClientRotation))]
    [RequireComponent(typeof(ClientStatusView))]
    [RequireComponent(typeof(ClientStateMachine))]
    [RequireComponent(typeof(ClientAI))]
@@ -16,8 +17,8 @@ namespace Raketa420
       public ClientStateMachine stateMachine;
       public InactionClientState inactionState;
       public FindPlaceClientState findPlaceState;
-      public WaitingForOrderAcceptanceClientState waitingForOrderAcceptanceClientState;
-      public MakingAnOrderClientState makingAnOrderClientState;
+      public WaitingOrderAcceptanceClientState waitingOrderAcceptanceClientState;
+      public WaitingOrderClientState waitingOrderClientState;
       public WaitSecondTimeClientState waitSecondTimeState;
       public SmokingPerformanceClientState smokingPerformanceClientState;
       public ExitFromBarClientState exitFromBarClientState;
@@ -25,6 +26,7 @@ namespace Raketa420
       private ClientData data;
       private ClientAnimation animation;
       private ClientMovement movement;
+      private ClientRotation rotation;
       private ClientStatusView statusView;
       private ClientAI ai;
 
@@ -33,6 +35,7 @@ namespace Raketa420
       public ClientData Data => data;
       public ClientAnimation Animation => animation;
       public ClientMovement Movement => movement;
+      public ClientRotation Rotation => rotation;
       public ClientStatusView StatusView => statusView;
       public ClientAI AI => ai;
 
@@ -55,7 +58,7 @@ namespace Raketa420
 
       public SitPlace GetSitPlace()
       {
-         if (data.CurrentSitPlace != null)
+         if (!data.CurrentSitPlace)
          {
             var sitPlaces = data.CurrentUsingServicePlace.SitPlaces;
             var randomSitPlacesIndex = Random.Range(0, data.CurrentUsingServicePlace.SitPlaces.Length);
@@ -77,6 +80,7 @@ namespace Raketa420
          data = GetComponent<ClientData>();
          animation = GetComponent<ClientAnimation>();
          movement = GetComponent<ClientMovement>();
+         rotation = GetComponent<ClientRotation>();
          statusView = GetComponent<ClientStatusView>();
          ai = GetComponent<ClientAI>();
 
@@ -91,8 +95,8 @@ namespace Raketa420
          stateMachine = GetComponent<ClientStateMachine>();
          inactionState = new InactionClientState(this, stateMachine);
          findPlaceState = new FindPlaceClientState(this, stateMachine);
-         waitingForOrderAcceptanceClientState = new WaitingForOrderAcceptanceClientState(this, stateMachine);
-         makingAnOrderClientState = new MakingAnOrderClientState(this, stateMachine);
+         waitingOrderAcceptanceClientState = new WaitingOrderAcceptanceClientState(this, stateMachine);
+         waitingOrderClientState = new WaitingOrderClientState(this, stateMachine);
          waitSecondTimeState = new WaitSecondTimeClientState(this, stateMachine);
          smokingPerformanceClientState = new SmokingPerformanceClientState(this, stateMachine);
          exitFromBarClientState = new ExitFromBarClientState(this, stateMachine);

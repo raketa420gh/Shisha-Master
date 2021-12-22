@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 
 namespace Raketa420
 {
@@ -10,6 +9,7 @@ namespace Raketa420
       public void SetWalkingAnimation()
       {
          animator.SetBool(AnimationParameterNames.IsWalking, true);
+         animator.SetBool(AnimationParameterNames.IsSitting, false);
       }
 
       public void SetIdleAnimation()
@@ -19,6 +19,7 @@ namespace Raketa420
 
       public void SetSittingAnimation()
       {
+         animator.SetBool(AnimationParameterNames.IsWalking, false);
          animator.SetBool(AnimationParameterNames.IsSitting, true);
       }
    }

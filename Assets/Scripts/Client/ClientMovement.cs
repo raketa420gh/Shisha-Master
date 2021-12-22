@@ -8,14 +8,12 @@ namespace Raketa420
 
    public class ClientMovement : MonoBehaviour
    {
-      private Seeker seeker;
       private AIPath aiPath;
 
       public AIPath AiPath => aiPath;
 
       public void Initialize()
       {
-         seeker = GetComponent<Seeker>();
          aiPath = GetComponent<AIPath>();
       }
 
