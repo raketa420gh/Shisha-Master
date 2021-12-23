@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Raketa420
 {
@@ -16,6 +15,7 @@ namespace Raketa420
       [SerializeField] private Bench bench;
       [SerializeField] private Master master;
       [SerializeField] private ServicePlacesManager servicePlacesManager;
+      [SerializeField] private PointsManager pointsManager;
 
       [Header("Session Settings")]
       [SerializeField] private GameplayData data;
@@ -27,6 +27,7 @@ namespace Raketa420
       public Master Master => master;
       public Bench Bench => bench;
       public ServicePlacesManager ServicePlacesManager => servicePlacesManager;
+      public PointsManager PointsManager => pointsManager;
 
       private void Start()
       {
@@ -52,6 +53,8 @@ namespace Raketa420
             master = FindObjectOfType<Master>();
          if (!servicePlacesManager)
             servicePlacesManager = FindObjectOfType<ServicePlacesManager>();
+         if (!pointsManager)
+            pointsManager = FindObjectOfType<PointsManager>();
 
          InitializeStateMachine();
 
@@ -59,6 +62,7 @@ namespace Raketa420
          bench.Initialize();
          master.Initialize();
          servicePlacesManager.Initialize();
+         pointsManager.Initialize();
       }
 
       private void InitializeStateMachine()

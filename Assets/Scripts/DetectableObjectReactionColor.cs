@@ -16,7 +16,6 @@ namespace Raketa420
             detectableObject = GetComponent<IDetectableObject>();
 
             var myRenderer = GetComponentInChildren<Renderer>();
-
             material = myRenderer.material;
             colorByDefault = material.color;
         }

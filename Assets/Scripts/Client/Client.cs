@@ -8,6 +8,7 @@ namespace Raketa420
    [RequireComponent(typeof(ClientAnimation))]
    [RequireComponent(typeof(ClientMovement))]
    [RequireComponent(typeof(ClientRotation))]
+   [RequireComponent(typeof(ClientReaction))]
    [RequireComponent(typeof(ClientStatusView))]
    [RequireComponent(typeof(ClientStateMachine))]
    [RequireComponent(typeof(ClientAI))]
@@ -27,6 +28,7 @@ namespace Raketa420
       private ClientAnimation animation;
       private ClientMovement movement;
       private ClientRotation rotation;
+      private ClientReaction reaction;
       private ClientStatusView statusView;
       private ClientAI ai;
 
@@ -36,6 +38,7 @@ namespace Raketa420
       public ClientAnimation Animation => animation;
       public ClientMovement Movement => movement;
       public ClientRotation Rotation => rotation;
+      public ClientReaction Reaction => reaction;
       public ClientStatusView StatusView => statusView;
       public ClientAI AI => ai;
 
@@ -81,6 +84,7 @@ namespace Raketa420
          animation = GetComponent<ClientAnimation>();
          movement = GetComponent<ClientMovement>();
          rotation = GetComponent<ClientRotation>();
+         reaction = GetComponent<ClientReaction>();
          statusView = GetComponent<ClientStatusView>();
          ai = GetComponent<ClientAI>();
 

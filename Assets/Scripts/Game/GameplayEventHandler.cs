@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Raketa420
@@ -16,6 +15,9 @@ namespace Raketa420
             TableTrigger.OnHookahTriggered += TableOnHookahTriggered;
             Client.OnTableTaked += OnClientTableToke;
             ClientData.OnTableReleased += OnTableReleased;
+            ClientReaction.OnPositiveReacted += OnClientPositiveReacted;
+            ClientReaction.OnNegativeReacted += OnClientNegativeReacted;
+            PointsManager.OnServicePointsChanged += OnServicePointsChanged;
         }
 
         private void OnDisable()
@@ -26,6 +28,9 @@ namespace Raketa420
             MasterInteraction.OnBenchZoneExited -= OnMasterExited;
             Client.OnTableTaked -= OnClientTableToke;
             ClientData.OnTableReleased -= OnTableReleased;
+            ClientReaction.OnPositiveReacted -= OnClientPositiveReacted;
+            ClientReaction.OnNegativeReacted -= OnClientNegativeReacted;
+            PointsManager.OnServicePointsChanged -= OnServicePointsChanged;
         }
 
         public void DropItem()
@@ -73,6 +78,21 @@ namespace Raketa420
         private void OnTableReleased(ServicePlace servicePlace)
         {
             game.ServicePlacesManager.SetServicePlaceFree(servicePlace);
+        }
+
+        private void OnClientPositiveReacted(int pointsToIncrease)
+        {
+            game.PointsManager.IncreaseServicePoints(pointsToIncrease);
+        }
+
+        private void OnClientNegativeReacted(int pointsToDecrease)
+        {
+            game.PointsManager.DecreaseServicePoints(pointsToDecrease);
+        }
+
+        private void OnServicePointsChanged(float normalized)
+        {
+            game.UI.SetServicePointsFiller(normalized);
         }
     }
 }

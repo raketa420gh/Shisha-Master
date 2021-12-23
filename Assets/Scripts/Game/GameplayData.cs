@@ -10,6 +10,6 @@ namespace Raketa420
       public Vector3 ClientStartPosition;
       
       [Header("Points")]
-      public int MaxServicePoints;
+      public int MaxStartServicePoints;
    }
 }

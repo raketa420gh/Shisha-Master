@@ -9,7 +9,7 @@ namespace Raketa420
       [SerializeField] private UIPanel hudPanel;
       [SerializeField] private UIPanel masterStatusPanel;
       [SerializeField] private TextMeshProUGUI masterStatusTMP;
-      [SerializeField] private Image happinessPointsFiller;
+      [SerializeField] private Image servicePointsFiller;
       [SerializeField] private Button interactionItemButton;
       [SerializeField] private Button craftButton;
 
@@ -39,9 +39,9 @@ namespace Raketa420
          craftButton.gameObject.SetActive(isActive);
       }
 
-      private void OnHappinessPointsChanged(float normalized)
+      public void SetServicePointsFiller(float normalized)
       {
-         happinessPointsFiller.fillAmount = normalized;
+         servicePointsFiller.fillAmount = normalized;
       }
    }
 }

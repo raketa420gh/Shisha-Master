@@ -31,11 +31,13 @@ namespace Raketa420
 
          if (timer > waitingTime)
          {
+            client.Reaction.ReactNegative(5);
             client.stateMachine.ChangeState(client.exitFromBarClientState);
          }
          
          if (client.Data.CurrentUsingServicePlace.HaveHookah)
          {
+            client.Reaction.ReactPositive(10);
             client.stateMachine.ChangeState(client.smokingPerformanceClientState);
          }
       }

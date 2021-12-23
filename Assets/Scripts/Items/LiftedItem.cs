@@ -43,7 +43,6 @@ namespace Raketa420
         
         public void Detected(GameObject detectionSource)
         {
-            
             OnGameObjectDetected?.Invoke(detectionSource, gameObject);
         }
 

@@ -17,9 +17,10 @@ namespace Raketa420
          game.UI.EnableMasterStatusPanel(true);
          game.UI.EnableInteractionItemButton(false);
          game.UI.EnableCraftButton(false);
+         game.PointsManager.SetServicePointsValues(25, 100);
 
-         var randomPeriod = Random.Range(2f, 20f);
-         game.Spawner.StartSpawningClients(game.Data.ClientStartPosition, 50, randomPeriod);
+         var randomPeriod = Random.Range(2f, 10f);
+         game.Spawner.StartSpawningClients(game.Data.ClientStartPosition, 25, randomPeriod);
       }
 
       public override void Exit()

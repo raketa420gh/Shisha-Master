@@ -35,6 +35,7 @@ namespace Raketa420
 
          if (timer > processTime)
          {
+            client.Reaction.ReactNegative(5);
             client.stateMachine.ChangeState(client.exitFromBarClientState);
          }
 
