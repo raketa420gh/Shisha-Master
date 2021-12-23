@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 2625313800639091741}
   - component: {fileID: 7873505711138942294}
   - component: {fileID: 3634469000581226271}
-  - component: {fileID: 5300014234665405347}
+  - component: {fileID: 3939506551810312296}
   m_Layer: 0
   m_Name: Hookah
   m_TagString: Untagged
@@ -158,16 +158,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &5300014234665405347
-SphereCollider:
+--- !u!114 &3939506551810312296
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8296049373776743885}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.53372645
-  m_Center: {x: 0, y: 0.29465747, z: 0.0039144754}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27990bb681334101aa4ce3c21c247f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorReaction: {r: 1, g: 0, b: 0, a: 1}

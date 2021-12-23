@@ -4,11 +4,14 @@ namespace Raketa420
 {
     [RequireComponent(typeof(Rigidbody))]
 
-    public class LiftedItem : MonoBehaviour
+    public class LiftedItem : MonoBehaviour, IDetectableObject
     {
         private Rigidbody selfRigidbody;
         private Transform selfTransform;
         private Transform parent;
+        
+        public event ObjectDetectedHandler OnGameObjectDetected;
+        public event ObjectDetectedHandler OnGameObjectDetectionReleased;
 
         private void Awake()
         {
@@ -36,6 +39,17 @@ namespace Raketa420
         public void SetKinematic(bool isActive)
         {
             selfRigidbody.isKinematic = isActive;
+        }
+        
+        public void Detected(GameObject detectionSource)
+        {
+            
+            OnGameObjectDetected?.Invoke(detectionSource, gameObject);
+        }
+
+        public void DetectionReleased(GameObject detectionSource)
+        {
+            OnGameObjectDetectionReleased?.Invoke(detectionSource, gameObject);
         }
     }
 }

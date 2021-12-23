@@ -40,8 +40,8 @@ GameObject:
   m_Component:
   - component: {fileID: 853237256767614974}
   - component: {fileID: 853237256767614975}
-  - component: {fileID: 3820283825256930474}
   - component: {fileID: 7268307376122060216}
+  - component: {fileID: 9151422037883591722}
   m_Layer: 0
   m_Name: Bench
   m_TagString: Untagged
@@ -78,22 +78,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3478dec2f1999947a160bf7232a1628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  benchUI: {fileID: 3820283825256930474}
+  benchUI: {fileID: 0}
   craftDoneTransform: {fileID: 7122971333140626639}
   hookahPrefab: {fileID: 8296049373776743885, guid: e382c77cf409bfd42bc8ed55fab69150,
     type: 3}
---- !u!114 &3820283825256930474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853237256767614973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20f30829e956c2e46a2fa5aa17348a4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  craftingPeriod: 1
 --- !u!65 &7268307376122060216
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,6 +96,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.73806, y: 0.5024363, z: 1.2906123}
   m_Center: {x: 0, y: 0.24878186, z: -0.39628965}
+--- !u!114 &9151422037883591722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853237256767614973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0794dfebb1034e0e82cb9dcde3b37ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 5710459567154630211}
 --- !u!1 &853237256822731184
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +216,7 @@ GameObject:
   - component: {fileID: 8542675933571764069}
   - component: {fileID: 8226133729408887355}
   - component: {fileID: 488987575530682353}
+  - component: {fileID: 5710459567154630211}
   m_Layer: 5
   m_Name: BenchCanvas
   m_TagString: Untagged
@@ -290,6 +293,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09c7e7cfafac1a74dac9b46e22ccac9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5710459567154630211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2765348992532949729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b411dff2a94d2ec4caa37a898df5a9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3620486168739683660
