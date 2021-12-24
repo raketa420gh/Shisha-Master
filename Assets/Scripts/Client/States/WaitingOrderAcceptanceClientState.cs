@@ -41,6 +41,7 @@ namespace Raketa420
 
          if (Vector3.Distance(master.transform.position, client.transform.position) < distanceToMaster)
          {
+            client.Reaction.ReactPositive(2);
             client.stateMachine.ChangeState(client.waitingOrderClientState);
          }
       }

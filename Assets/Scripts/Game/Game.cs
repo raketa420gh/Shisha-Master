@@ -15,6 +15,7 @@ namespace Raketa420
       [SerializeField] private Bench bench;
       [SerializeField] private Master master;
       [SerializeField] private ServicePlacesManager servicePlacesManager;
+      [SerializeField] private AudioManager audioManager;
       [SerializeField] private PointsManager pointsManager;
 
       [Header("Session Settings")]
@@ -27,6 +28,7 @@ namespace Raketa420
       public Master Master => master;
       public Bench Bench => bench;
       public ServicePlacesManager ServicePlacesManager => servicePlacesManager;
+      public AudioManager AudioManager => audioManager;
       public PointsManager PointsManager => pointsManager;
 
       private void Start()
@@ -55,6 +57,8 @@ namespace Raketa420
             servicePlacesManager = FindObjectOfType<ServicePlacesManager>();
          if (!pointsManager)
             pointsManager = FindObjectOfType<PointsManager>();
+         if (!audioManager)
+            audioManager = FindObjectOfType<AudioManager>();
 
          InitializeStateMachine();
 
@@ -63,6 +67,7 @@ namespace Raketa420
          master.Initialize();
          servicePlacesManager.Initialize();
          pointsManager.Initialize();
+         audioManager.Initialize();
       }
 
       private void InitializeStateMachine()

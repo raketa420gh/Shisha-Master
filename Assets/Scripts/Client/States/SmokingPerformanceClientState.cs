@@ -5,7 +5,7 @@ namespace Raketa420
     public class SmokingPerformanceClientState : ClientState
     {
         private float timer;
-        private float processTime = 120f;
+        private float processTime = 45f;
         
         public SmokingPerformanceClientState(Client client, ClientStateMachine stateMachine) : base(client, stateMachine)
         {
@@ -17,6 +17,7 @@ namespace Raketa420
 
             timer = 0f;
             client.Data.SetSmokingPerformanceStatus();
+            client.Reaction.ReactPositive(10);
         }
 
         public override void LogicUpdate()
@@ -30,6 +31,7 @@ namespace Raketa420
 
             if (timer > processTime)
             {
+                client.Reaction.ReactPositive(10);
                 client.stateMachine.ChangeState(client.exitFromBarClientState);
             }
         }

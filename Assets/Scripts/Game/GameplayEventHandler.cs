@@ -41,16 +41,19 @@ namespace Raketa420
         public void CraftHookah()
         {
             game.Bench.CraftHookah();
+            game.AudioManager.PlayCraftSound(game.Bench.transform.position);
         }   
         
         private void MasterOnItemLifted()
         {
             game.UI.EnableInteractionItemButton(true);
+            game.AudioManager.PlayLiftItemSound(game.Master.Interaction.HandTransform.position);
         }
         
         private void MasterOnItemDropped()
         {
             game.UI.EnableInteractionItemButton(false);
+            game.AudioManager.PlayDropItemSound(game.Master.Interaction.HandTransform.position);
         }
       
         private void OnMasterEntered()

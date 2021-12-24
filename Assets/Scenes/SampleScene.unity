@@ -403,6 +403,7 @@ MonoBehaviour:
   bench: {fileID: 2034673853}
   master: {fileID: 1546001319}
   servicePlacesManager: {fileID: 180948820}
+  audioManager: {fileID: 0}
   pointsManager: {fileID: 765290980}
   data: {fileID: 11400000, guid: 93b0dd470238f2a42b1a34abff72b302, type: 2}
 --- !u!4 &186850111
@@ -1273,11 +1274,59 @@ Transform:
   - {fileID: 765290981}
   - {fileID: 5020673054369759980}
   - {fileID: 3832181369330888196}
+  - {fileID: 1423104755}
   - {fileID: 3432613266765901608}
   - {fileID: 2134652817}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1423104754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1423104755}
+  - component: {fileID: 1423104756}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1423104755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423104754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1345562433}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423104756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423104754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc6d047b2974bb6822e2e67d9d1f9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItemData: {fileID: 11400000, guid: 06c64ea8aaef0ba4f8af8af7b5efdd33, type: 2}
+  liftItemData: {fileID: 11400000, guid: 6ac16e739fd4ac24b8867526913b8984, type: 2}
+  runSound: {fileID: 0}
+  craftSound: {fileID: 11400000, guid: 813e43bb075d19a4796ee26883b19ddd, type: 2}
 --- !u!1 &1435592936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,7 +1711,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1345562433}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &117514725957573429
 MeshFilter:
@@ -3970,7 +4019,7 @@ Transform:
   m_Children:
   - {fileID: 8750873087526368004}
   m_Father: {fileID: 1345562433}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3442797175842478267
 GameObject:

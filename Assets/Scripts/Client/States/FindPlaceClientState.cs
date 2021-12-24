@@ -43,10 +43,5 @@ namespace Raketa420
             client.stateMachine.ChangeState(client.waitingOrderAcceptanceClientState);
          }
       }
-
-      public override void Exit()
-      {
-         base.Exit();
-      }
    }
 }

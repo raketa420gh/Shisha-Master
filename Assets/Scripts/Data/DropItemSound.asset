@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe007da650041db88227192ecf672f0, type: 3}
+  m_Name: DropItemSound
+  m_EditorClassIdentifier: 
+  Name: DropItemSound
+  Clip: {fileID: 8300000, guid: ca2a3d83fa53cfb4b84855e7ee5ab3d0, type: 3}
+  Volume: 0.5

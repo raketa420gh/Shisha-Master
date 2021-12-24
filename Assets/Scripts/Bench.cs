@@ -11,7 +11,7 @@ namespace Raketa420
       [SerializeField] private Transform craftDoneTransform;
       [SerializeField] private GameObject hookahPrefab;
       [SerializeField] private float craftingPeriod = 1f;
-      private bool canCraft = false;
+      private bool canCraft;
 
       public static event Action OnCrafted;
 
@@ -42,7 +42,7 @@ namespace Raketa420
          }
          else
          {
-            Debug.LogError("You can not craft.");
+            Debug.Log("You can not craft.");
          }
       }
 

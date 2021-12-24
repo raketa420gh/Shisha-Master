@@ -16,6 +16,8 @@ namespace Raketa420
         public static event Action OnBenchZoneEntered;
         public static event Action OnBenchZoneExited;
 
+        public Transform HandTransform => hand;
+
         public void Initialize()
         {
             hand = GetComponentInChildren<HandPoint>().transform;

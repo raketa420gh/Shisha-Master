@@ -15,7 +15,7 @@ namespace Raketa420
 
         public void ReactNegative(int pointsToDecrease)
         {
-            OnPositiveReacted?.Invoke(pointsToDecrease);
+            OnNegativeReacted?.Invoke(pointsToDecrease);
         }
     }
 }
